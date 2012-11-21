@@ -1,13 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'devisio.views.home', name='home'),
-    # url(r'^devisio/', include('devisio.foo.urls')),
+    url(r'^$', TemplateView.as_view(template_name='base.html'), name='home'),
 
     # admin
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
