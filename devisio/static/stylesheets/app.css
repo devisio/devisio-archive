@@ -7,7 +7,7 @@
 :: Page Name 1
 :: Page Name 2
 */
-body, p {
+body, p, small {
     font-family: "Droid Sans", Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-size: 14px;
@@ -16,6 +16,10 @@ body, p {
 
 p {
     text-align: justify;
+}
+
+small {
+    font-size: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
