@@ -8,10 +8,12 @@
 :: Page Name 2
 */
 body, p, small {
-    font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", "Droid Sans", Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-size: 14px;
     line-height: 1.6;
+    text-shadow: 0 0 1px rgba(77,77,77,0.5);
+    color: #4D4D4D;
 }
 
 p {
@@ -23,7 +25,7 @@ small {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", "Droid Sans", Arial, Helvetica, sans-serif;
     font-weight: 300;
 }
 
