@@ -1,4 +1,8 @@
+from os import path
+
+
 # Django settings for devisio project.
+PROJECT_PATH = path.abspath(path.join(path.join(path.dirname(__file__), path.pardir), path.pardir))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
