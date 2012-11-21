@@ -7,6 +7,21 @@
 :: Page Name 1
 :: Page Name 2
 */
+body, p {
+    font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+p {
+    text-align: justify;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
 
 header {
     background-color: #f5f5f5;
