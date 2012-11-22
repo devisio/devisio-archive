@@ -8,3 +8,6 @@ privateserver:
 
 publicserver:
 	$(MANAGE_BIN) runserver 0.0.0.0:8000
+
+staticfiles:
+	$(MANAGE_BIN) collectstatic --noinput
