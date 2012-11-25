@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='devisio/home.html'), name='home'),
-    url(r'^about/$', TemplateView.as_view(template_name='devisio/about.html'), name='about'),
+    url(r'^members/$', TemplateView.as_view(template_name='devisio/members.html'), name='members'),
 
     # admin
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
