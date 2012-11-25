@@ -43,12 +43,12 @@ header .navigation {
 
 header a,
 footer a {
-    color: #4d4d4d;
+    color: #4d4d4d !important;
 }
 
 header a:hover,
 footer a:hover {
-    color: #777777;
+    color: #777777 !important;
 }
 
 header .navigation > li {
