@@ -11,10 +11,10 @@ requirements: virtualenv
 	$(PIP_BIN) install -r requirements.txt
 
 privateserver: requirements
-	$(MANAGE_BIN) runserver
+	$(MANAGE_BIN) runserver --settings=devisio.settings.development
 
 publicserver: requirements
-	$(MANAGE_BIN) runserver 0.0.0.0:8000
+	$(MANAGE_BIN) runserver 0.0.0.0:8000 --settings=devisio.settings.development
 
 staticfiles: requirements
 	$(MANAGE_BIN) collectstatic --noinput
