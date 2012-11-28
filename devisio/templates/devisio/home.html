@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="row">
+    <div class="six columns">
+        <h5>Headline</h5>
+    </div>
+    <div class="six columns">
+        <div class="right">
+            <h5><small>November 26, 2012</small></h5>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="twelve columns">
+        <div class="panel">
+            <div class="am-container" id="am-container">
+                {% for i in "xxxxxxxxxxxx" %}
+                <a href="#"><img src="{{MEDIA_URL}}{{forloop.counter0}}.jpg" alt="" /></a>
+                {% endfor %}
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="twelve columns">
+        <hr>
+    </div>
+</div>
 {% endblock %}
