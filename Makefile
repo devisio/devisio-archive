@@ -22,3 +22,6 @@ staticfiles: requirements
 mediafolders:
 	mkdir -p deploy/media
 	mkdir -p deploy/media/uploads
+
+database: requirements
+	$(MANAGE_BIN) syncdb --noinput --settings=devisio.settings.development
