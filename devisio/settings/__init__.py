@@ -109,7 +109,6 @@ ROOT_URLCONF = 'devisio.urls'
 WSGI_APPLICATION = 'devisio.wsgi.application'
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
@@ -120,6 +119,8 @@ INSTALLED_APPS = (
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    # internal
+    'devisio.accounts',
 )
 
 # A sample logging configuration. The only tangible logging
