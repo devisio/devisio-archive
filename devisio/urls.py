@@ -4,6 +4,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 
+from filebrowser.sites import site
+
 
 admin.autodiscover()
 
@@ -15,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^imprint/$', TemplateView.as_view(template_name='devisio/imprint.html'), name='imprint'),
 
     # admin
+    url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),

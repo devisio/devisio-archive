@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # admin
     'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
