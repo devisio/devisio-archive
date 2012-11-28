@@ -68,6 +68,7 @@
 
                     $('<img/>').load(function() {
                         ++count;
+
                         if(count==imageCount) {
                             images.show();
                             container.montage({
@@ -78,6 +79,21 @@
                         }
                     }).attr('src', image.attr('src'));
                 });
+
+                var links = $('a[rel=image-modal]');
+
+                for(var i=0; i<links.length; i++) {
+                    var link = $(links[i]);
+                    link.click(function(event) {
+                        event.preventDefault();
+
+                        var modal = $('#image-modal');
+                        modal.html('<p><img src="'+$(event.currentTarget).attr('href')+'" style="margin: 0 auto; display: block;" /></p>');
+                        modal.reveal();
+
+                        return false;
+                    });
+                };
             });
         </script>
     </body>

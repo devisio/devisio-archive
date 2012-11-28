@@ -1,26 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div id="image-modal" class="reveal-modal medium"></div>
 <div class="row">
     <div class="six columns">
-        <h5>Headline</h5>
+        <h5>m))) Motion Mannheim <small>by noxan</small></h5>
     </div>
     <div class="six columns">
         <div class="right">
-            <h5><small>November 26, 2012</small></h5>
+            <h5><small>June 16, 2012</small></h5>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="twelve columns">
-        <div class="panel">
-            <div class="am-container" id="am-container">
-                {% for i in "xxxxxxxxxxxx" %}
-                <a href="#"><img src="{{MEDIA_URL}}{{forloop.counter0}}.jpg" alt="" /></a>
-                {% endfor %}
-            </div>
-            <div style="clear: both;"></div>
+        <div class="am-container" id="am-container">
+            {% for i in "xxxxxxxxxxxx" %}
+            <a href="{{MEDIA_URL}}{{forloop.counter0}}.jpg" rel="image-modal"><img src="{{MEDIA_URL}}{{forloop.counter0}}.jpg" alt="" /></a>
+            {% endfor %}
         </div>
+        <div style="clear: both;"></div>
     </div>
 </div>
 <div class="row">
