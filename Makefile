@@ -18,3 +18,7 @@ publicserver: requirements
 
 staticfiles: requirements
 	$(MANAGE_BIN) collectstatic --noinput
+
+mediafolders:
+	mkdir -p deploy/media
+	mkdir -p deploy/media/uploads
