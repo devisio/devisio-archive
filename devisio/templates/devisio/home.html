@@ -16,7 +16,7 @@
     <div class="twelve columns">
         <div class="am-container" id="am-container">
             {% for i in "xxxxxxxxxxxx" %}
-            <a href="#"><img src="{{MEDIA_URL}}{{forloop.counter0}}.jpg" alt="" /></a>
+            <a href="{{MEDIA_URL}}{{forloop.counter0}}.jpg" rel="image-modal"><img src="{{MEDIA_URL}}{{forloop.counter0}}.jpg" alt="" /></a>
             {% endfor %}
         </div>
         <div style="clear: both;"></div>
