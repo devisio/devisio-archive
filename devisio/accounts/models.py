@@ -8,7 +8,7 @@ class AccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-    email = models.EmailField(_("Email address"), unique=True)
+    email = models.EmailField(_("Email address"), unique=True, db_index=True, blank=False, null=False)
 
     objects = AccountManager()
 
