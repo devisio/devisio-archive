@@ -20,7 +20,7 @@ class Photo(models.Model):
     image = FileBrowseField(max_length=200)
 
     def get_directory(self):
-        return u'albums/' + unicode(self.album)
+        return u'albums/{0}'.format(self.album)
 
     def __unicode__(self):
         return u'{0} in {1}'.format(self.image, self.album)
