@@ -21,3 +21,6 @@ class Photo(models.Model):
 
     def get_directory(self):
         return u'albums/' + unicode(self.album)
+
+    def __unicode__(self):
+        return u'{0} in {1}'.format(self.image, self.album)
