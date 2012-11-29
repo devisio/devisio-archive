@@ -120,6 +120,8 @@ INSTALLED_APPS = (
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    # devisio
+    'devisio.photos',
 )
 
 # A sample logging configuration. The only tangible logging
