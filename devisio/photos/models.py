@@ -12,7 +12,7 @@ class Album(models.Model):
 
 class Photo(models.Model):
     album = models.ForeignKey(Album)
-    image = FileBrowseField()
+    image = FileBrowseField(max_length=200)
 
     def get_directory(self):
         return u'albums/' + unicode(self.album)
