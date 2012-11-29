@@ -109,7 +109,6 @@ ROOT_URLCONF = 'devisio.urls'
 WSGI_APPLICATION = 'devisio.wsgi.application'
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
@@ -121,8 +120,11 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     # devisio
+    'devisio.accounts',
     'devisio.photos',
 )
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
