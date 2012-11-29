@@ -4,6 +4,6 @@ from models import Album
 
 
 class AlbumAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'owner')
 
 admin.site.register(Album, AlbumAdmin)
