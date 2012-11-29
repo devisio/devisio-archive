@@ -11,6 +11,9 @@ class Album(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False)
     date = models.DateField(default=timezone.now())
 
+    def __unicode__(self):
+        return self.name
+
 
 class Photo(models.Model):
     album = models.ForeignKey(Album)
