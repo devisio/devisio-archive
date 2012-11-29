@@ -1,5 +1,7 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
+
 
 from filebrowser.fields import FileBrowseField
 
@@ -7,8 +9,8 @@ from filebrowser.fields import FileBrowseField
 class Album(models.Model):
     name = models.CharField(max_length=255)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False)
-    create_date = models.DateTimeField(auto_now_add=True, editable=False)
-    edit_date = models.DateTimeField(auto_now=True, editable=False)
+    date = models.DateField(default=timezone.now())
+
 
 class Photo(models.Model):
     album = models.ForeignKey(Album)
