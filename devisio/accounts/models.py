@@ -13,6 +13,7 @@ class Account(AbstractBaseUser):
     objects = AccountManager()
 
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['email',]
 
     def get_full_name(self):
         return self.email
