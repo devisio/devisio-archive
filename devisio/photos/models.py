@@ -22,6 +22,15 @@ class Album(models.Model):
         absolute_path = os.path.join(MEDIA_ROOT, DIRECTORY)
         return os.path.join(absolute_path, self.get_path())
 
+    def create_folder(self):
+        folder = self.get_absolute_path()
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
+    def remove_folder(self):
+        folder = self.get_absolute_path()
+        os.rmdir(folder)
+
     def __unicode__(self):
         return self.name
 
