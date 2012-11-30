@@ -5,7 +5,7 @@ from models import Album
 
 
 class AlbumAdmin(admin.ModelAdmin):
-    list_display = ('name', 'owner')
+    list_display = ('name', 'owner', 'visible')
     prepopulated_fields = {'slug': ('name',)}
 
     def save_model(self, request, obj, form, change):
