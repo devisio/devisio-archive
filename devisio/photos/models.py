@@ -11,6 +11,7 @@ class Album(models.Model):
     slug = models.SlugField()
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False)
     date = models.DateField(default=timezone.now())
+    visible = models.BooleanField(default=True)
 
     def __unicode__(self):
         return self.name
