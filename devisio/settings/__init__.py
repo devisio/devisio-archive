@@ -119,8 +119,9 @@ INSTALLED_APPS = (
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    # internal
+    # devisio
     'devisio.accounts',
+    'devisio.photos',
 )
 
 AUTH_USER_MODEL = 'accounts.Account'
