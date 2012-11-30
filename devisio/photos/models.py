@@ -1,8 +1,10 @@
+import os
+
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
-
+from filebrowser.settings import MEDIA_ROOT, DIRECTORY
 from filebrowser.fields import FileBrowseField
 
 
@@ -13,6 +15,13 @@ class Album(models.Model):
     date = models.DateField(default=timezone.now())
     visible = models.BooleanField(default=True)
 
+    def get_path(self):
+        return u'albums/{0}/'.format(self.id)
+
+    def get_absolute_path(self):
+        absolute_path = os.path.join(MEDIA_ROOT, DIRECTORY)
+        return os.path.join(absolute_path, self.get_path())
+
     def __unicode__(self):
         return self.name
 
@@ -20,9 +29,6 @@ class Album(models.Model):
 class Photo(models.Model):
     album = models.ForeignKey(Album)
     image = FileBrowseField(max_length=200)
-
-    def get_directory(self):
-        return u'albums/{0}'.format(self.album)
 
     def __unicode__(self):
         return u'{0} in {1}'.format(self.image, self.album)
