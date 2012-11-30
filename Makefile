@@ -25,3 +25,6 @@ mediafolders:
 
 database: requirements
 	$(MANAGE_BIN) syncdb --noinput --settings=devisio.settings.development
+
+shell: requirements
+	$(MANAGE_BIN) shell --settings=devisio.settings.development
