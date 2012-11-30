@@ -3,6 +3,7 @@ import os
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.db.models.signals import post_save, post_delete
 
 from filebrowser.settings import MEDIA_ROOT, DIRECTORY
 from filebrowser.fields import FileBrowseField
@@ -41,3 +42,15 @@ class Photo(models.Model):
 
     def __unicode__(self):
         return u'{0} in {1}'.format(self.image, self.album)
+
+
+def post_album_delete(sender, instance, using, **kwargs):
+    instance.remove_folder()
+
+post_delete.connect(post_album_delete, sender=Album)
+
+
+def post_album_save(sender, instance, created, raw, using, update_fields, **kwargs):
+    instance.create_folder()
+
+post_save.connect(post_album_save, sender=Album)
