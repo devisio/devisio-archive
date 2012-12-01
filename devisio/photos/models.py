@@ -35,6 +35,11 @@ class Album(models.Model):
         if os.path.exists(folder):
             os.rmdir(folder)
 
+    def get_photos(self):
+        folder = self.get_absolute_path()
+        files = os.listdir(folder)
+        return files
+
     def __unicode__(self):
         return self.name
 
