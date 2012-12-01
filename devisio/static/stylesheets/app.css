@@ -98,6 +98,7 @@ footer {
 .am-wrapper img{
     position:absolute;
     outline:none;
+    left: 0px !important;
 }
 
 
