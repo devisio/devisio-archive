@@ -30,7 +30,8 @@ class Album(models.Model):
 
     def remove_folder(self):
         folder = self.get_absolute_path()
-        os.rmdir(folder)
+        if os.path.exists(folder):
+            os.rmdir(folder)
 
     def __unicode__(self):
         return self.name
