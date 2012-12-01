@@ -57,8 +57,7 @@
         <script src="{{STATIC_URL}}javascripts/foundation.min.js" type="text/javascript"></script>
         <script src="{{STATIC_URL}}javascripts/jquery.montage.min.js" type="text/javascript"></script>
         <script>
-            $(document).ready(function() {
-                var container = $('#am-container');
+            function handleAlbum(container) {
                 var images = container.find('img').hide();
                 var imageCount = images.length;
                 var count = 0;
@@ -72,9 +71,12 @@
                         if(count==imageCount) {
                             images.show();
                             container.montage({
-                                liquid  : false,
-                                fixedHeight : 120,
-                                fillLastRow : true
+                                alternateHeight : true,
+                                alternateHeightRange : {
+                                    min : 100,
+                                    max : 150
+                                },
+                                fillLastRow : true,
                             });
                         }
                     }).attr('src', image.attr('src'));
@@ -94,6 +96,14 @@
                         return false;
                     });
                 };
+            }
+
+            $(document).ready(function() {
+                var containers = $('.am-container');
+
+                for(var it = 0; it < containers.length; it++) {
+                    handleAlbum($(containers[it]));
+                }
             });
         </script>
     </body>
