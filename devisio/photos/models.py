@@ -1,4 +1,5 @@
 import os
+import re
 
 from django.conf import settings
 from django.db import models
@@ -7,6 +8,7 @@ from django.db.models.signals import post_save, post_delete
 
 from filebrowser.settings import MEDIA_ROOT, DIRECTORY
 from filebrowser.fields import FileBrowseField
+from filebrowser.signals import filebrowser_post_upload
 
 
 class Album(models.Model):
@@ -30,7 +32,13 @@ class Album(models.Model):
 
     def remove_folder(self):
         folder = self.get_absolute_path()
-        os.rmdir(folder)
+        if os.path.exists(folder):
+            os.rmdir(folder)
+
+    def get_photos(self):
+        folder = self.get_absolute_path()
+        files = os.listdir(folder)
+        return files
 
     def __unicode__(self):
         return self.name
@@ -54,3 +62,18 @@ def post_album_save(sender, instance, created, raw, using, update_fields, **kwar
     instance.create_folder()
 
 post_save.connect(post_album_save, sender=Album)
+
+
+def post_photo_upload(sender, **kwargs):
+    parts = re.split('/', sender.GET['folder'])
+    album_id = parts[:2][1]
+    try:
+        album = Album.objects.get(id=album_id)
+        image = kwargs['file']
+        if not Photo.objects.filter(image=image).exists():
+            photo = Photo.objects.create(album=album, image=image)
+            photo.save()
+    except Album.DoesNotExist:
+        pass
+
+filebrowser_post_upload.connect(post_photo_upload)

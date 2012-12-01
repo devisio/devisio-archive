@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load fb_versions %}
+
+{% block content %}
+<div id="image-modal" class="reveal-modal medium"></div>
+{% for album in album_list %}
+{% if album.photo_set.count > 0 %}
+<div class="row">
+    <div class="six columns">
+        <h5>{{ album.name }} <small>by {{ album.owner }}</small></h5>
+    </div>
+    <div class="six columns">
+        <div class="right">
+            <h5><small>{{ album.date }}</small></h5>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="twelve columns">
+        <div class="am-container" id="am-container">
+            {%  for photo in album.photo_set.all %}
+            <a href="{% version photo.image 'large' %}" rel="image-modal"><img src="{% version photo.image 'medium' %}" alt="" /></a>
+            {% endfor %}
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="twelve columns">
+        <hr>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}
