@@ -1,12 +1,18 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 
-from models import Album
+from models import Album, Photo
+
+
+class PhotoAdminInline(admin.TabularInline):
+    model = Photo
+    extra = 0
 
 
 class AlbumAdmin(admin.ModelAdmin):
     list_display = ('name', 'owner', 'visible', 'photos')
     prepopulated_fields = {'slug': ('name',)}
+    inlines = [PhotoAdminInline,]
 
     def photos(self, obj):
         return '<ul class="grp-actions"><li class="grp-change-link"><a href="/admin/filebrowser/upload/?&dir='+obj.get_path()+'" class="">Add photos</a></li></ul>'
