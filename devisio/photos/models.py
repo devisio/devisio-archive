@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 
 from django.conf import settings
 from django.db import models
@@ -33,7 +34,7 @@ class Album(models.Model):
     def remove_folder(self):
         folder = self.get_absolute_path()
         if os.path.exists(folder):
-            os.rmdir(folder)
+            shutil.rmtree(folder)
 
     def get_photos(self):
         folder = self.get_absolute_path()
