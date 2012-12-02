@@ -1,6 +1,5 @@
 https://www.djangoproject.com/download/1.5b1/tarball/#egg=django
 psycopg2
 pil
-dj-database-url
 django-grappelli
 django-filebrowser
