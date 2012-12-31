@@ -44,6 +44,9 @@ class Album(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        ordering = ['-date']
+
 
 class Photo(models.Model):
     album = models.ForeignKey(Album)
