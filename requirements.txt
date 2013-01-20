@@ -1,4 +1,4 @@
-https://www.djangoproject.com/m/releases/1.5/Django-1.5b1.tar.gz#egg=django
+https://www.djangoproject.com/m/releases/1.5/Django-1.5c1.tar.gz#egg=django
 south
 psycopg2
 pil
