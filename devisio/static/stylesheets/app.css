@@ -114,6 +114,36 @@ footer {
 }
 
 
+.image {
+    position: relative;
+    line-height: 0;
+    margin-bottom: 20px;
+}
+
+.image .description {
+    line-height: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+}
+
+.image .description > div {
+    display: inline-block;
+    color: #efefef;
+    padding: 10px;
+}
+
+.image:hover .description {
+    opacity: 1;
+}
 
 /* -----------------------------------------
    Page Name 1
