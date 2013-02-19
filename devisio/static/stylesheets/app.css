@@ -26,8 +26,7 @@ body, p, small {
 
 content {
     display: block;
-    padding-top: 20px;
-    padding-bottom: 70px;
+    padding: 50px 0;
     background-color: #ffffff;
 }
 
@@ -118,6 +117,10 @@ footer {
     position: relative;
     line-height: 0;
     margin-bottom: 20px;
+}
+
+.image:last-child {
+    margin-bottom: 0;
 }
 
 .image .description {
