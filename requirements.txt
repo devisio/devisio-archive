@@ -4,3 +4,4 @@ psycopg2
 pil
 django-grappelli
 django-filebrowser
+django-compressor==1.2
