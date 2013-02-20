@@ -147,6 +147,7 @@ FILEBROWSER_VERSIONS = {
   'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
   'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
   'album_title': {'verbose_name': 'Album title', 'width': 1920, 'height': 640, 'opts': 'crop'},
+  'album_gallery': {'verbose_name': 'Album', 'width': 1920, 'height': '', 'opts': ''},
 }
 
 FILEBROWSER_VERSIONS_BASEDIR = 'versions/'
