@@ -14,4 +14,7 @@ DATABASES = {
     }
 }
 
+COMPRESS_ENABLED = False
+COMPRESS_OFFLINE = False
+
 INSTALLED_APPS = INSTALLED_APPS + ('django_extensions',)
