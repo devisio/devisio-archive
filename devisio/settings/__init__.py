@@ -131,6 +131,13 @@ INSTALLED_APPS = (
 
 AUTH_USER_MODEL = 'accounts.Account'
 
+# Compressor
+COMPRESS_ENABLED = True
+
+COMPRESS_PRECOMPILERS = (
+    ('text/coffeescript', 'coffee --compile --stdio'),
+)
+
 # Filebrowser
 FILEBROWSER_VERSIONS = {
   'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
