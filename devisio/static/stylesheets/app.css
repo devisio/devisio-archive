@@ -100,19 +100,6 @@ footer {
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-.am-wrapper{
-    float:left;
-    position:relative;
-    overflow:hidden;
-}
-
-.am-wrapper img{
-    position:absolute;
-    outline:none;
-    left: 0px !important;
-}
-
-
 .image {
     position: relative;
     line-height: 0;
