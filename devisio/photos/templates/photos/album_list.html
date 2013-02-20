@@ -6,11 +6,13 @@
 {% for album in album_list %}
 {% with album.photo_set.all|first as photo %}
 <div class="image">
-  <img src="{% version photo.image 'album_title' %}" />
-  <div class="description">
-    <div>{{album.name}}</div>
-    <div class="right">{{album.date}}</div>
-  </div>
+  <a href="{% version photo.image 'album_gallery' %}" data-album-id="{{album.id}}">
+    <img src="{% version photo.image 'album_title' %}" />
+    <div class="description">
+      <div>{{album.name}}</div>
+      <div class="right">{{album.date}}</div>
+    </div>
+  </a>
 </div>
 {% endwith %}
 {% endfor %}
