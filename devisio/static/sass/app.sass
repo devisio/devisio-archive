@@ -1,3 +1,4 @@
+@import 'variables'
 body
   background-color: #f5f5f5
 
@@ -5,10 +6,10 @@ html
   overflow-y: scroll
 
 body, p, small
-  font-family: "Open Sans", "Droid Sans", Arial, Helvetica, sans-serif
+  font-family: $fontFamily
   font-weight: normal
-  font-size: 14px
-  line-height: 1.6
+  font-size: $fontSize
+  line-height: $lineHeight
   text-shadow: 0 0 1px rgba(77, 77, 77, 0.5)
   color: #4D4D4D
 
@@ -24,7 +25,7 @@ small
   font-size: 10px
 
 h1, h2, h3, h4, h5, h6
-  font-family: "Open Sans", "Droid Sans", Arial, Helvetica, sans-serif
+  font-family: $fontFamily
   font-weight: 300
 
 header
