@@ -14,6 +14,7 @@ class Gallery
     @count = @images.length
     @pos = 0
     this._calculateRatio id for obj, id in @images
+    this._preloadImage(@pos)
 
   _calculateRatio: (id) ->
     image = @images[id]
