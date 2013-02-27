@@ -28,7 +28,6 @@ class Gallery
     if @images[id]['preload'] is undefined
       img = new Image()
       $(img).attr({src: @images[id].src}).bind 'load', (evt) =>
-        console.log 'loading...', $(evt.target).width(), $(evt.target).height(), evt.target.naturalWidth, evt.target.naturalHeight
         @images[id]['image'] = evt.target
         @images[id]['preload'] = true
 
