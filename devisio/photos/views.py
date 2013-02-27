@@ -11,7 +11,12 @@ class AlbumJsonDetailView(BaseDetailView):
 
     def serialize_album(self, album):
         def _serialize_photo(photo):
-            return {"src": photo.image.version_generate('album_gallery').url}
+            version = photo.image.version_generate('album_gallery')
+            return {
+                "src": version.url,
+                "width": version.width,
+                "height": version.height
+            }
 
         res = [_serialize_photo(photo) for photo in album.photos.all()]
 
