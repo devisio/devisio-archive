@@ -38,8 +38,8 @@ class Gallery
     this.updateImage()
 
   updateImage: ->
-    $('.gallery > img').attr('src', @images[@pos].src).bind 'load', () =>
-      this.updatePosition()
+    $('.gallery > img').attr('src', @images[@pos].src)
+    this.updatePosition()
     this.preloadNextAndPrev()
 
   registerListeners: ->
