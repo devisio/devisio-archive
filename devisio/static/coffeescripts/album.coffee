@@ -63,7 +63,7 @@ class Gallery
     windowWidth = $(window).width()
     windowHeight = $(window).height()
 
-    console.log 'updatePosition', windowWidth, windowHeight, image['width'], image['height']
+    #console.log 'updatePosition', windowWidth, windowHeight, image['width'], image['height']
 
     width = -2 * @margin
     height = -2 * @margin
