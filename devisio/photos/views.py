@@ -1,11 +1,25 @@
-from django.views.generic import DetailView, ListView
+from django.http import HttpResponse
+from django.utils import simplejson as json
+from django.views.generic import ListView
+from django.views.generic.detail import BaseDetailView
 
 from models import Album
 
 
-class AlbumListView(ListView):
+class AlbumJsonDetailView(BaseDetailView):
     model = Album
 
+    def serialize_album(self, album):
+        def _serialize_photo(photo):
+            return {"src": photo.image.version_generate('album_gallery').url}
 
-class AlbumDetailView(DetailView):
+        res = [_serialize_photo(photo) for photo in album.photos.all()]
+
+        return json.dumps(res)
+
+    def render_to_response(self, context):
+        return HttpResponse(self.serialize_album(context['object']), content_type='application/json')
+
+
+class AlbumListView(ListView):
     model = Album
