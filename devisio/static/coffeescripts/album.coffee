@@ -13,7 +13,11 @@ class Gallery
   constructor: (@images) ->
     @count = @images.length
     @pos = 0
-    this._preloadImage id for obj, id in @images
+    this._calculateRatio id for obj, id in @images
+
+  _calculateRatio: (id) ->
+    image = @images[id]
+    image['ratio'] = image['width'] / image['height']
 
   _preloadImage: (id) ->
     img = new Image()
