@@ -32,9 +32,8 @@ class Gallery
     this.updateImage()
 
   updateImage: ->
-    $('.gallery > img').replaceWith(@images[@pos].image)
-    this.updatePosition()
-
+    $('.gallery > img').attr('src', @images[@pos].src).bind 'load', () =>
+      this.updatePosition()
 
   registerListeners: ->
     $('.gallery-background').bind 'click', (evt) =>
