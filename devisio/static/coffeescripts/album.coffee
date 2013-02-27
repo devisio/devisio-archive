@@ -86,18 +86,24 @@ class Gallery
     $('.gallery').remove()
     $('.gallery-background').remove()
 
-  next: ->
-    if @pos < @count - 1
-      @pos = @pos + 1
+  _getNext: (from) ->
+    if from < @count - 1
+      return from + 1
     else
-      @pos = 0
+      return 0
+
+  _getPrev: (from) ->
+    if from > 0
+      return from - 1
+    else
+      return @count - 1
+
+  next: ->
+    @pos = this._getNext(@pos)
     this.updateImage()
 
   prev: ->
-    if @pos > 0
-      @pos = @pos - 1
-    else
-      @pos = @count - 1
+    @pos = this._getPrev(@pos)
     this.updateImage()
 
 
