@@ -1,0 +1,26 @@
+.album
+  position: relative
+  line-height: 0
+  margin-bottom: 20px
+  &:last-child
+    margin-bottom: 0
+  .description
+    line-height: 1
+    background-color: #000000
+    background-color: rgba(0, 0, 0, 0.5)
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    opacity: 0
+    -webkit-transition: all 200ms
+    -moz-transition: all 200ms
+    -ms-transition: all 200ms
+    -o-transition: all 200ms
+    transition: all 200ms
+    > div
+      display: inline-block
+      color: #efefef
+      padding: 10px
+  &:hover .description
+    opacity: 1

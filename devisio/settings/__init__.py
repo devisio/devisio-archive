@@ -77,6 +77,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -121,12 +122,36 @@ INSTALLED_APPS = (
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    #
+    'compressor',
     # devisio
     'devisio.accounts',
     'devisio.photos',
 )
 
 AUTH_USER_MODEL = 'accounts.Account'
+
+# Compressor
+COMPRESS_ENABLED = True
+
+COMPRESS_PRECOMPILERS = (
+    ('text/coffeescript', 'coffee --compile --stdio'),
+    ('text/x-sass', 'sass {infile} {outfile}'),
+)
+
+# Filebrowser
+FILEBROWSER_VERSIONS = {
+  'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+  'thumbnail': {'verbose_name': 'Thumbnail (1 col)', 'width': 60, 'height': 60, 'opts': 'crop'},
+  'small': {'verbose_name': 'Small (2 col)', 'width': 140, 'height': '', 'opts': ''},
+  'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},
+  'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
+  'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
+  'album_title': {'verbose_name': 'Album title', 'width': 1920, 'height': 640, 'opts': 'crop'},
+  'album_gallery': {'verbose_name': 'Album', 'width': 1920, 'height': '', 'opts': ''},
+}
+
+FILEBROWSER_VERSIONS_BASEDIR = 'versions/'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
