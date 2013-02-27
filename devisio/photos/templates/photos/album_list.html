@@ -4,7 +4,7 @@
 
 {% block content %}
 {% for album in album_list %}
-{% with album.photo_set.all|first as photo %}
+{% with album.photos.all|first as photo %}
 <div class="album">
   <a href="{% version photo.image 'album_gallery' %}" data-album-id="{{album.id}}">
     <img src="{% version photo.image 'album_title' %}" />
