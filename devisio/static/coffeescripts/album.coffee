@@ -25,9 +25,6 @@ class Gallery
     $(img).attr({src: src}).bind 'load', (evt) =>
       console.log 'loading...', $(evt.target).width(), $(evt.target).height(), evt.target.naturalWidth, evt.target.naturalHeight
       @images[id]['image'] = evt.target
-      @images[id]['width'] = evt.target.naturalWidth
-      @images[id]['height'] = evt.target.naturalHeight
-      @images[id]['ratio'] = evt.target.naturalWidth / evt.target.naturalHeight
 
   show: ->
     $('body').append(@html)
