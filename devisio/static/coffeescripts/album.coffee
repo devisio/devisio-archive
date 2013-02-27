@@ -20,6 +20,10 @@ class Gallery
     image = @images[id]
     image['ratio'] = image['width'] / image['height']
 
+  preloadNextAndPrev: () ->
+    this._preloadImage(this._getPrev(@pos))
+    this._preloadImage(this._getNext(@pos))
+
   _preloadImage: (id) ->
     if @images[id]['preload'] is undefined
       img = new Image()
@@ -37,6 +41,7 @@ class Gallery
   updateImage: ->
     $('.gallery > img').attr('src', @images[@pos].src).bind 'load', () =>
       this.updatePosition()
+    this.preloadNextAndPrev()
 
   registerListeners: ->
     $('.gallery-background').bind 'click', (evt) =>
