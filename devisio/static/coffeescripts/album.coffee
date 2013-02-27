@@ -20,11 +20,12 @@ class Gallery
     image['ratio'] = image['width'] / image['height']
 
   _preloadImage: (id) ->
-    img = new Image()
-    src = @images[id].src
-    $(img).attr({src: src}).bind 'load', (evt) =>
-      console.log 'loading...', $(evt.target).width(), $(evt.target).height(), evt.target.naturalWidth, evt.target.naturalHeight
-      @images[id]['image'] = evt.target
+    if @images[id]['preload'] is undefined
+      img = new Image()
+      $(img).attr({src: @images[id].src}).bind 'load', (evt) =>
+        console.log 'loading...', $(evt.target).width(), $(evt.target).height(), evt.target.naturalWidth, evt.target.naturalHeight
+        @images[id]['image'] = evt.target
+        @images[id]['preload'] = true
 
   show: ->
     $('body').append(@html)
