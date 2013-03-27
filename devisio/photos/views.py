@@ -28,3 +28,8 @@ class AlbumJsonDetailView(BaseDetailView):
 
 class AlbumListView(ListView):
     model = Album
+
+
+class OverviewView(ListView):
+    model = Album
+    template_name = 'photos/overview.html'
