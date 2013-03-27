@@ -3,15 +3,14 @@ $ = jQuery
 class AlbumManager
   constructor: () ->
     @albums = new Array(0)
-    this.registerAlbum album for album in $('div.album')
+    this.registerAlbum $(link) for link in $('a[data-album-id]')
 
-  registerAlbum: (album) ->
-    @albums.push(new Album(album))
+  registerAlbum: (link) ->
+    @albums.push(new Album(link))
 
 
 class Album
-  constructor: (@album) ->
-    @link = $(@album).children('a[data-album-id]')
+  constructor: (@link) ->
     @link.bind 'click', (evt) =>
       evt.preventDefault()
       response = $.ajax(this.getURL(), {'async': false}).responseText
