@@ -12,7 +12,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^', include('devisio.photos.urls', namespace='photos')),
     url(r'^about/$', TemplateView.as_view(template_name='devisio/about.html'), name='about'),
-    url(r'^members/$', TemplateView.as_view(template_name='devisio/members.html'), name='members'),
     url(r'^contact/$', TemplateView.as_view(template_name='devisio/contact.html'), name='contact'),
     url(r'^imprint/$', TemplateView.as_view(template_name='devisio/imprint.html'), name='imprint'),
 
