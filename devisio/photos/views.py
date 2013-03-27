@@ -27,7 +27,8 @@ class AlbumJsonDetailView(BaseDetailView):
 
 
 class AlbumListView(ListView):
-    model = Album
+    def get_queryset(self):
+        return Album.objects.all()[:5]
 
 
 class OverviewView(ListView):
