@@ -13,7 +13,7 @@ requirements: virtualenv
 privateserver: requirements
 	$(MANAGE_BIN) runserver --settings=devisio.settings.development
 
-publicserver: requirements
+server: requirements
 	$(MANAGE_BIN) runserver 0.0.0.0:8000 --settings=devisio.settings.development
 
 staticfiles: requirements
