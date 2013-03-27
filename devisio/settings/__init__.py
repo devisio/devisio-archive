@@ -142,6 +142,7 @@ COMPRESS_PRECOMPILERS = (
 # Filebrowser
 FILEBROWSER_VERSIONS = {
     'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'avatar': {'verbose_name': 'Avatar', 'width': 125, 'height': 125, 'opts': 'crop upscale'},
     'album_title': {'verbose_name': 'Album title', 'width': 1920, 'height': 640, 'opts': 'crop upscale'},
     'album_gallery': {'verbose_name': 'Album', 'width': 1920, 'height': '', 'opts': ''},
 }
