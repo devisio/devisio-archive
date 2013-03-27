@@ -4,6 +4,13 @@
 
 {% block content %}
 <div class="row">
+  <div class="twelve columns">
+    <div class="page-header">
+      <h2>Overview</h2>
+    </div>
+  </div>
+</div>
+<div class="row">
   {% for album in album_list %}
   <div class="two columns">
     <a href="#album-{{album.id}}" data-album-id="{{album.id}}">
