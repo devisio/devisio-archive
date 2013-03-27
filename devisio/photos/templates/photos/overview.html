@@ -8,7 +8,7 @@
   <div class="two columns">
     <a href="#album-{{album.id}}" data-album-id="{{album.id}}">
       {% with album.photos.all|first as photo %}
-      <img src="{% version photo.image 'avatar' %}" alt="" class="avatar" />
+      <p><img src="{% version photo.image 'avatar' %}" alt="" class="avatar" /></p>
       {% endwith %}
     </a>
   </div>
