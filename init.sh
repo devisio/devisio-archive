@@ -18,12 +18,12 @@ PATH="/sbin:/usr/sbin:/bin:/usr/bin";
 DESC="devisio service";
 NAME="devisio";
 PROJECT_PATH="/var/www/devisio.net";
-PIDFILE="$PROJECT_PATH/$NAME.pid"
-SOCKETFILE="$PROJECT_PATH/$NAME.fcgi"
-OUTLOG="$PROJECT_PATH/logs/out.log";
-ERRLOG="$PROJECT_PATH/logs/err.log";
-DAEMON="$PROJECT_PATH/devisio/env/bin/python";
-DAEMON_ARGS="$PROJECT_PATH/devisio/manage.py runfcgi method=threaded umask=0000 socket=$SOCKETFILE daemonize=true pidfile=$PIDFILE outlog=$OUTLOG errlog=$ERRLOG settings=devisio.settings.production"
+PIDFILE="$PROJECT_PATH/deploy/$NAME.pid"
+SOCKETFILE="$PROJECT_PATH/deploy/$NAME.fcgi"
+OUTLOG="$PROJECT_PATH/deploy/logs/out.log";
+ERRLOG="$PROJECT_PATH/deploy/logs/err.log";
+DAEMON="$PROJECT_PATH/env/bin/python";
+DAEMON_ARGS="$PROJECT_PATH/manage.py runfcgi method=threaded umask=0000 socket=$SOCKETFILE daemonize=true pidfile=$PIDFILE outlog=$OUTLOG errlog=$ERRLOG settings=devisio.settings.production"
 SCRIPTNAME="/etc/init.d/$NAME";
 RUNAS_USER="www-data";
 
