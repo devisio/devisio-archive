@@ -5,9 +5,9 @@
 # Required-Stop:     $network $local_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Should-Start:      lighttpd
-# Should-Stop:       lighttpd
-# Short-Description: Byteweaver django website initscript
+# Should-Start:      nginx
+# Should-Stop:       nginx
+# Short-Description: devisio.net django website initscript
 # Description:       This will start the devisio django website
 #                    in fastcgi mode.
 ### END INIT INFO
