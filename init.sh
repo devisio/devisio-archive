@@ -27,6 +27,11 @@ DAEMON_ARGS="$PROJECT_PATH/manage.py runfcgi method=threaded umask=0000 socket=$
 SCRIPTNAME="/etc/init.d/$NAME";
 RUNAS_USER="www-data";
 
+# Debian bin path for coffee (nodejs)
+export PATH=$PATH:/usr/local/bin
+# Debian bin path for sass (ruby gem)
+export PATH=$PATH:/var/lib/gems/1.9.1/bin/
+
 export DJANGO_SETTINGS_MODULE='devisio.settings.production'
 
 #. "$PROJECT_PATH/devisio/env/bin/activate";
