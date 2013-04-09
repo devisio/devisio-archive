@@ -30,7 +30,7 @@ RUNAS_USER="www-data";
 # Debian bin path for coffee (nodejs)
 export PATH=$PATH:/usr/local/bin
 # Debian bin path for sass (ruby gem)
-export PATH=$PATH:/var/lib/gems/1.9.1/bin/
+export PATH=$PATH:/var/lib/gems/1.8/gems/sass-3.2.7/bin/
 
 export DJANGO_SETTINGS_MODULE='devisio.settings.production'
 
