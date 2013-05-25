@@ -4,17 +4,20 @@
   margin-bottom: 150px
 
 @for $i from 1 through 6
+  $size: $i * 25px + 225px
   .album#{$i}
-    $size: $i * 25px + 225px
     position: absolute
     bottom: 0
     display: inline-block
     width: $size
     height: $size
+    box-shadow: 0 0 1px rgba(77, 77, 77, 0.25)
+    border-radius: $size
     img
       width: $size
       height: $size
       border-radius: $size
+
 
 .album1
   left: 60px
