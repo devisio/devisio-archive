@@ -12,7 +12,7 @@ class PhotoAdminInline(admin.TabularInline):
 class AlbumAdmin(admin.ModelAdmin):
     list_display = ('name', 'owner', 'visible', 'photos')
     prepopulated_fields = {'slug': ('name',)}
-    inlines = [PhotoAdminInline,]
+    inlines = [PhotoAdminInline]
 
     def photos(self, obj):
         return '<ul class="grp-actions"><li class="grp-change-link"><a href="/admin/filebrowser/upload/?&dir='+obj.get_path()+'" class="">Add photos</a></li></ul>'
