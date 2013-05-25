@@ -3,17 +3,19 @@
 {% load fb_versions %}
 
 {% block content %}
-{% for album in album_list %}
-{% with album.photos.all|first as photo %}
-<div class="album">
-  <a href="#album-{{album.id}}" data-album-id="{{album.id}}">
-    <img src="{% version photo.image 'album_title' %}" />
-    <div class="description">
-      <div>{{album.name}}</div>
-      <div class="right">{{album.date}}</div>
+<div class="row">
+  <div class="twelve columns album-container">
+    {% for album in album_list %}
+    <div class="album{{forloop.counter}}">
+      {% with album.photos.all|first as photo %}
+      <a href="#album-{{album.id}}" data-album-id="{{album.id}}">
+        {% with album.photos.all|first as photo %}
+        <img src="{% version photo.image 'album-bubble' %}" alt="" />
+        {% endwith %}
+      </a>
+      {% endwith %}
     </div>
-  </a>
+    {% endfor %}
+  </div>
 </div>
-{% endwith %}
-{% endfor %}
 {% endblock %}
