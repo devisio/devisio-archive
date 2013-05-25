@@ -28,7 +28,7 @@ class AlbumJsonDetailView(BaseDetailView):
 
 class AlbumListView(ListView):
     def get_queryset(self):
-        return Album.objects.all()[:6]
+        return Album.objects.visible()[:6]
 
 
 class OverviewView(ListView):
