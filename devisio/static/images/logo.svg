@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -8,16 +7,11 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="1024"
    height="1024"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="logo.svg"
-   inkscape:export-filename="C:\Users\noxan\Desktop\devisio-logo.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   sodipodi:docname="logo.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,21 +19,8 @@
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.087500001"
-     inkscape:cx="350.17926"
-     inkscape:cy="1510.155"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1368"
-     inkscape:window-height="809"
-     inkscape:window-x="4073"
-     inkscape:window-y="137"
-     inkscape:window-maximized="0"
-     showguides="true"
-     inkscape:guide-bbox="true" />
+     showguides="true" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -53,8 +34,6 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-28.362183)">
     <path
@@ -70,7 +49,6 @@
     <path
        style="fill:none;stroke:#4d4d4d;stroke-width:50;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 612.74384,239.00443 c -119.65716,43.65731 -239.31431,87.31463 -358.97147,130.97193 3.96002,127.23477 7.92004,254.46953 11.88006,381.7043 122.27738,34.95022 244.55471,69.90047 366.8321,104.8507 C 703.82895,750.75891 775.17336,644.98646 846.51779,539.21398 768.59314,439.14414 690.66848,339.07429 612.74384,239.00443 z"
-       id="path3755-1-4"
-       inkscape:connector-curvature="0" />
+       id="path3755-1-4" />
   </g>
 </svg>
