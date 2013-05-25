@@ -1,27 +1,47 @@
-.album
+.album-container
   position: relative
-  line-height: 0
-  margin: 0 auto 20px auto
-  max-width: 1920px
-  &:last-child
-    margin-bottom: 0
-  .description
-    line-height: 1
-    background-color: #000000
-    background-color: rgba(0, 0, 0, 0.5)
+  height: 450px
+  margin-bottom: 150px
+
+@for $i from 1 through 6
+  .album#{$i}
+    $size: $i * 25px + 225px
     position: absolute
     bottom: 0
-    left: 0
-    width: 100%
-    opacity: 0
-    -webkit-transition: all 200ms
-    -moz-transition: all 200ms
-    -ms-transition: all 200ms
-    -o-transition: all 200ms
-    transition: all 200ms
-    > div
-      display: inline-block
-      color: #efefef
-      padding: 10px
-  &:hover .description
-    opacity: 1
+    display: inline-block
+    width: $size
+    height: $size
+    img
+      width: $size
+      height: $size
+      border-radius: $size
+
+.album1
+  left: 60px
+  bottom: -135px
+  z-index: 100
+
+.album2
+  right: 80px
+  bottom: -130px
+  z-index: 97
+
+.album3
+  right: 100px
+  top: 50px
+  z-index: 98
+
+.album4
+  left: 270px
+  bottom: 150px
+  z-index: 97
+
+.album5
+  left: 0px
+  bottom: 30px
+  z-index: 96
+
+.album6
+  left: 275px
+  bottom: -155px
+  z-index: 95
