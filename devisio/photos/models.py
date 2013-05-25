@@ -5,11 +5,17 @@ import shutil
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.db.models import Count
 from django.db.models.signals import post_save, post_delete
 
 from filebrowser.settings import MEDIA_ROOT, DIRECTORY
 from filebrowser.fields import FileBrowseField
 from filebrowser.signals import filebrowser_post_upload
+
+
+class AlbumManager(models.Manager):
+    def visible(self):
+        return Album.objects.annotate(photo_count=Count('photos')).filter(photo_count__gt=0)
 
 
 class Album(models.Model):
@@ -18,6 +24,8 @@ class Album(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False)
     date = models.DateField(default=timezone.now())
     visible = models.BooleanField(default=True)
+
+    objects = AlbumManager()
 
     def get_path(self):
         return u'albums/{0}/'.format(self.id)
