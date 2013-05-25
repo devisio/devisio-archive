@@ -50,7 +50,20 @@ class Album(models.Model):
 
 class Photo(models.Model):
     album = models.ForeignKey(Album, related_name='photos')
+    position = models.PositiveSmallIntegerField(default=1)
     image = FileBrowseField(max_length=200)
+
+    class Meta:
+        ordering = ['position']
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            try:
+                objects = self.__class__.objects.filter(album=self.album)
+                self.position = objects.aggregate(models.Max('position'))['position__max'] + 1
+            except (TypeError, IndexError):
+                pass
+        super(Photo, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return u'{0} in {1}'.format(self.image, self.album)

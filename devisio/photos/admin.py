@@ -5,8 +5,10 @@ from devisio.photos.models import Album, Photo
 
 
 class PhotoAdminInline(admin.TabularInline):
+    fields = ('position', 'image')
     model = Photo
     extra = 0
+    sortable_field_name = 'position'
 
 
 class AlbumAdmin(admin.ModelAdmin):
