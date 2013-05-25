@@ -53,6 +53,9 @@ class Photo(models.Model):
     position = models.PositiveSmallIntegerField(default=1)
     image = FileBrowseField(max_length=200)
 
+    class Meta:
+        ordering = ['position']
+
     def __unicode__(self):
         return u'{0} in {1}'.format(self.image, self.album)
 
