@@ -50,6 +50,7 @@ class Album(models.Model):
 
 class Photo(models.Model):
     album = models.ForeignKey(Album, related_name='photos')
+    position = models.PositiveSmallIntegerField(default=1)
     image = FileBrowseField(max_length=200)
 
     def __unicode__(self):
