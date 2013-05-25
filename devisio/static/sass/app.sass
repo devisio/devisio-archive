@@ -53,9 +53,16 @@ header
     margin-top: 20px
     padding: 0
 
-header img.logo
+header .logo
   height: 47px
+  width: 47px
   margin-bottom: -6px
+
+header a svg.logo > g > path
+  stroke: #4d4d4d
+
+header a:hover svg.logo > g > path
+  stroke: #777777
 
 @media only screen and (min-width: 768px)
   header .link-list
