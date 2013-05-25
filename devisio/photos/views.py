@@ -32,5 +32,7 @@ class AlbumListView(ListView):
 
 
 class OverviewView(ListView):
-    model = Album
     template_name = 'photos/overview.html'
+
+    def get_queryset(self):
+        return Album.objects.visible()
