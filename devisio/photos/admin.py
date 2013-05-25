@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 
-from models import Album, Photo
+from devisio.photos.models import Album, Photo
 
 
 class PhotoAdminInline(admin.TabularInline):
