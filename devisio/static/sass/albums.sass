@@ -13,16 +13,15 @@
     position: relative
     top: 0
     left: 0
-
-[class^="album"]:hover
-  z-index: 101
-  img
-    height: 105%
-    width: 105%
-    max-width: 105%
-    border-radius: 105%
-    top: -2.5%
-    left: -2.5%
+  &:hover
+    z-index: 101
+    img
+      height: 105%
+      width: 105%
+      max-width: 105%
+      border-radius: 105%
+      top: -2.5%
+      left: -2.5%
 
 @for $i from 1 through 6
   $size: 400px - $i * 25px
