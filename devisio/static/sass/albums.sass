@@ -7,10 +7,20 @@
   position: absolute
   bottom: 0
   display: inline-block
-  transition: all 0.02s ease-in-out 0.02s
+  img
+    transition-property: all
+    transition-duration: 0.6s
+    position: relative
 
 [class^="album"]:hover
   z-index: 101
+  img
+    height: 105%
+    width: 105%
+    max-width: 105%
+    border-radius: 105%
+    top: -2.5%
+    left: -2.5%
 
 @for $i from 1 through 6
   $size: 400px - $i * 25px
@@ -18,6 +28,8 @@
     width: $size
     height: $size
     &, img
+      width: $size
+      height: $size
       border-radius: $size
 
 .album1
