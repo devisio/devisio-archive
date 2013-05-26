@@ -35,10 +35,30 @@ img
   -ms-interpolation-mode: bicubic
   box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.25)
 
+@mixin img-resize($size, $scale: 1.05)
+  display: block
+  height: $size
+  position: relative
+  img
+    transition: all 0.5s
+    position: absolute
+    top: 0
+    left: 0
+  &:hover img
+    height: #{$size * $scale}
+    width: #{$size * $scale}
+    max-width: #{$size * $scale}
+    border-radius: #{$size * $scale}
+    top: #{$size * (1-$scale)/2}
+    left: #{$size * (1-$scale)/2}
+
 img.avatar
   width: 125px
   height: 125px
   border-radius: 125px
+
+a.avatar-resize
+  @include img-resize(125px)
 
 img, object, embed
   max-width: 100%
