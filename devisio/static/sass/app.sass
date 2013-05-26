@@ -35,12 +35,12 @@ img
   -ms-interpolation-mode: bicubic
   box-shadow: 0px 0px 1px rgba(77, 77, 77, 0.25)
 
-@mixin img-resize($size, $scale: 1.05)
+@mixin img-resize($size, $scale: 1.05, $time: 0.5s)
   display: block
   height: $size
   position: relative
   img
-    transition: all 0.5s
+    transition: all $time
     position: absolute
     top: 0
     left: 0
@@ -58,7 +58,7 @@ img.avatar
   border-radius: 125px
 
 a.avatar-resize
-  @include img-resize(125px)
+  @include img-resize(125px, 1.05, 0.3s)
 
 img, object, embed
   max-width: 100%
