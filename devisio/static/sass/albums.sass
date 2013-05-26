@@ -3,18 +3,18 @@
   height: 450px
   margin-bottom: 150px
 
+[class^="album"]
+  position: absolute
+  bottom: 0
+  display: inline-block
+
+
 @for $i from 1 through 6
   $size: 400px - $i * 25px
   .album#{$i}
-    position: absolute
-    bottom: 0
-    display: inline-block
     width: $size
     height: $size
-    border-radius: $size
-    img
-      width: $size
-      height: $size
+    &, img
       border-radius: $size
 
 .album1
