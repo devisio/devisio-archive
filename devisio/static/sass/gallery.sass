@@ -1,49 +1,46 @@
-.album-container
-  position: relative
-  height: 450px
-  margin-bottom: 150px
-
-@for $i from 1 through 6
-  $size: 400px - $i * 25px
-  .album#{$i}
-    position: absolute
-    bottom: 0
-    display: inline-block
-    width: $size
-    height: $size
-    box-shadow: 0 0 1px rgba(77, 77, 77, 0.25)
-    border-radius: $size
-    img
-      width: $size
-      height: $size
-      border-radius: $size
-
-.album1
-  left: 275px
-  bottom: -155px
+.gallery-background
+  background-color: #000000
+  background-color: rgba(0, 0, 0, 0.95)
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
   z-index: 100
+  opacity: 0
 
-.album2
-  left: 0px
-  bottom: 30px
-  z-index: 96
-
-.album3
-  left: 270px
-  bottom: 150px
-  z-index: 97
-
-.album4
-  right: 100px
-  top: 50px
-  z-index: 98
-
-.album5
-  right: 80px
-  bottom: -130px
-  z-index: 97
-
-.album6
-  left: 60px
-  bottom: -135px
-  z-index: 99
+.gallery
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 101
+  >
+    img
+      max-height: 100%
+      max-width: 100%
+    a
+      cursor: pointer
+      position: fixed
+      top: 50%
+      display: block
+      font-size: 80px
+      line-height: 60px
+      color: #c6c6c6
+      text-shadow: 0 0 1px black
+      padding: 20px
+      margin-top: -50px
+      opacity: 0
+      -webkit-transition: opacity 0.3s linear
+      -moz-transition: opacity 0.3s linear
+      -ms-transition: opacity 0.3s linear
+      -o-transition: opacity 0.3s linear
+      transition: opacity 0.3s linear
+  &:hover > a
+    opacity: 1
+  >
+    .prev
+      left: 0
+      text-align: left
+    .next
+      right: 0
+      text-align: right

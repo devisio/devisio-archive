@@ -1,0 +1,49 @@
+.album-container
+  position: relative
+  height: 450px
+  margin-bottom: 150px
+
+@for $i from 1 through 6
+  $size: 400px - $i * 25px
+  .album#{$i}
+    position: absolute
+    bottom: 0
+    display: inline-block
+    width: $size
+    height: $size
+    box-shadow: 0 0 1px rgba(77, 77, 77, 0.25)
+    border-radius: $size
+    img
+      width: $size
+      height: $size
+      border-radius: $size
+
+.album1
+  left: 275px
+  bottom: -155px
+  z-index: 100
+
+.album2
+  left: 0px
+  bottom: 30px
+  z-index: 96
+
+.album3
+  left: 270px
+  bottom: 150px
+  z-index: 97
+
+.album4
+  right: 100px
+  top: 50px
+  z-index: 98
+
+.album5
+  right: 80px
+  bottom: -130px
+  z-index: 97
+
+.album6
+  left: 60px
+  bottom: -135px
+  z-index: 99
