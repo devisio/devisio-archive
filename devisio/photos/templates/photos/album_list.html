@@ -4,18 +4,20 @@
 
 {% block content %}
 <div class="row">
-  <div class="twelve columns album-container">
-    {% for album in album_list %}
-    <div class="album{{forloop.counter}}">
-      {% with album.photos.all|first as photo %}
-      <a href="#album-{{album.id}}" data-album-id="{{album.id}}">
+  <div class="twelve columns">
+    <div id="album-container">
+      {% for album in album_list %}
+      <div class="album{{forloop.counter}}">
         {% with album.photos.all|first as photo %}
-        <img src="{% version photo.image 'album-bubble' %}" alt="" />
+        <a href="#album-{{album.id}}" data-album-id="{{album.id}}">
+          {% with album.photos.all|first as photo %}
+          <img src="{% version photo.image 'album-bubble' %}" alt="" />
+          {% endwith %}
+        </a>
         {% endwith %}
-      </a>
-      {% endwith %}
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </div>
 {% endblock %}
