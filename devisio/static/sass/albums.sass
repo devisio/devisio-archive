@@ -7,7 +7,10 @@
   position: absolute
   bottom: 0
   display: inline-block
+  transition: all 0.1s ease-in-out 0.1s
 
+[class^="album"]:hover
+  z-index: 101
 
 @for $i from 1 through 6
   $size: 400px - $i * 25px
