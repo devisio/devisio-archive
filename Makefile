@@ -13,6 +13,7 @@ virtualenv:
 
 requirements: virtualenv
 	$(PIP_BIN) install -r requirements/base.txt
+	$(PIP_BIN) install -r requirements/$(TARGET).txt
 
 privateserver: requirements
 	$(MANAGE_BIN) runserver --settings=$(SETTINGS_PARAM)
