@@ -1,7 +1,9 @@
+TARGET?=development
 VIRTUALENV=env
 PYTHON_BIN=$(VIRTUALENV)/bin/python
 PIP_BIN=$(VIRTUALENV)/bin/pip
 MANAGE_BIN=$(PYTHON_BIN) manage.py
+SETTINGS_PARAM=devisio.settings.$(TARGET)
 
 
 virtualenv:
@@ -11,10 +13,10 @@ requirements: virtualenv
 	$(PIP_BIN) install -r requirements/base.txt
 
 privateserver: requirements
-	$(MANAGE_BIN) runserver --settings=devisio.settings.development
+	$(MANAGE_BIN) runserver --settings=$(SETTINGS_PARAM)
 
 server: requirements
-	$(MANAGE_BIN) runserver 0.0.0.0:8000 --settings=devisio.settings.development
+	$(MANAGE_BIN) runserver 0.0.0.0:8000 --settings=$(SETTINGS_PARAM)
 
 staticfiles: requirements
 	$(MANAGE_BIN) collectstatic --noinput
@@ -24,8 +26,8 @@ mediafolders:
 	mkdir -p deploy/media/uploads
 
 database: requirements
-	$(MANAGE_BIN) syncdb --noinput --settings=devisio.settings.development
-	$(MANAGE_BIN) migrate --all --settings=devisio.settings.development
+	$(MANAGE_BIN) syncdb --noinput --settings=$(SETTINGS_PARAM)
+	$(MANAGE_BIN) migrate --all --settings=$(SETTINGS_PARAM)
 
 shell: requirements
-	$(MANAGE_BIN) shell --settings=devisio.settings.development
+	$(MANAGE_BIN) shell --settings=$(SETTINGS_PARAM)
