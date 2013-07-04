@@ -8,7 +8,7 @@ virtualenv:
 	test -d "$(VIRTUALENV)" || virtualenv --distribute $(VIRTUALENV)
 
 requirements: virtualenv
-	$(PIP_BIN) install -r requirements.txt
+	$(PIP_BIN) install -r requirements/base.txt
 
 privateserver: requirements
 	$(MANAGE_BIN) runserver --settings=devisio.settings.development
