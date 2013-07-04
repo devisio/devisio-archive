@@ -21,11 +21,10 @@ privateserver: requirements
 server: requirements
 	$(MANAGE_BIN) runserver 0.0.0.0:8000 --settings=$(SETTINGS_PARAM)
 
-staticfiles: requirements
+collectstatic: requirements deployfolders
 	$(MANAGE_BIN) collectstatic --noinput
 
-mediafolders:
-	mkdir -p deploy/media
+deployfolders:
 	mkdir -p deploy/media/uploads
 
 database: requirements
