@@ -6,6 +6,8 @@ MANAGE_BIN=$(PYTHON_BIN) manage.py
 SETTINGS_PARAM=devisio.settings.$(TARGET)
 
 
+all: server
+
 virtualenv:
 	test -d "$(VIRTUALENV)" || virtualenv --distribute $(VIRTUALENV)
 
