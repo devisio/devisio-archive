@@ -3,6 +3,7 @@ $ = jQuery
 class Gallery
   html: '''
     <div class="gallery">
+      <a class="close">&times;</a>
       <img src="" alt="" />
       <a class="prev">‹</a>
       <a class="next">›</a>
@@ -43,7 +44,7 @@ class Gallery
     this.preloadNextAndPrev()
 
   registerListeners: ->
-    $('.gallery-background').bind 'click', (evt) =>
+    $('.gallery > a.close').bind 'click', (evt) =>
       this.close()
     $(document).bind 'keyup', (evt) =>
       if evt.keyCode is 27
