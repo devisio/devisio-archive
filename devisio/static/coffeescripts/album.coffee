@@ -50,8 +50,10 @@ class Gallery
     $('.gallery > a.close').bind 'click', (evt) =>
       this.close()
     $(document).bind 'keyup', (evt) =>
-      if evt.keyCode is 27
-        this.close()
+      switch evt.keyCode
+        when 27 then this.close()
+        when 37 then this.prev()
+        when 39 then this.next()
     $(window).bind 'resize', (evt) =>
       this.updatePosition()
     $('.gallery-background a.next').bind 'click', (evt) =>
