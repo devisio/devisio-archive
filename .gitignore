@@ -3,5 +3,6 @@
 *.swo
 # folders
 .idea/
+/.sass-cache/
 /env/
 /deploy/
