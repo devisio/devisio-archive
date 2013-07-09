@@ -28,16 +28,7 @@
                 <div class="row">
                     <div class="four columns">
                         <a href="{% url "photos:list" %}">
-                            <h1>
-                                <svg class="logo" xmlns="http://www.w3.org/2000/svg" version="1.1" width="48" height="48">
-                                    <g transform="translate(0,-1004.3622)">
-                                        <path d="m 45.322865,1028.3622 c 0,11.7763 -9.546572,21.3229 -21.322867,21.3229 -11.776296,0 -21.3228694,-9.5466 -21.3228694,-21.3229 0,-11.7763 9.5465734,-21.3229 21.3228694,-21.3229 11.776295,0 21.322867,9.5466 21.322867,21.3229 z" id="path2985" style="fill:none;stroke-width:2.35425997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
-                                        <path d="m 28.434134,1013.675 c -5.634086,2.0556 -11.268162,4.1112 -16.902248,6.1668 0.186463,5.9909 0.372916,11.9818 0.559378,17.9726 5.757458,1.6456 11.514905,3.2913 17.272362,4.937 3.359265,-4.9804 6.71853,-9.9607 10.077805,-14.941 -3.669099,-4.7118 -7.338197,-9.4236 -11.007297,-14.1354 z" id="path3755" style="fill:none;stroke-width:2.35426021;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-                                    </g>
-                                </svg>
-                                devisio
-                            </h1>
-
+                          <h1>{% include "logo.svg" %} devisio</h1>
                         </a>
                     </div>
                     <div class="eight columns">
