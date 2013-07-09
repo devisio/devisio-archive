@@ -9,6 +9,9 @@ SETTINGS_PARAM=devisio.settings.$(TARGET)
 
 all: server
 
+debian-packages:
+	sudo apt-get install ruby-sass
+
 environment:
 	test -d "$(VIRTUALENV_DIR)" || $(VIRTUALENV_BIN) --distribute --no-site-packages --python $(PYTHON) $(VIRTUALENV_DIR)
 
