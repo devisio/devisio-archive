@@ -144,7 +144,7 @@ FILEBROWSER_VERSIONS = {
     'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
     'avatar': {'verbose_name': 'Avatar', 'width': 125, 'height': 125, 'opts': 'crop upscale'},
     'album-bubble': {'verbose_name': 'Album bubble', 'width': 375, 'height': 375, 'opts': 'crop upscale'},
-    'album_gallery': {'verbose_name': 'Album', 'width': 1920, 'height': '', 'opts': ''},
+    'album_gallery': {'verbose_name': 'Album', 'width': 1920, 'height': 1920, 'opts': ''},
 }
 
 FILEBROWSER_ADMIN_VERSIONS = ['admin_thumbnail']
