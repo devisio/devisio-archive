@@ -56,6 +56,9 @@ class Gallery
     $('.gallery > a.prev').bind 'click', (evt) =>
       evt.preventDefault()
       this.prev()
+    $('.gallery > img').bind 'click', (evt) =>
+      evt.preventDefault()
+      this.next()
 
   updatePosition: ->
     image = @images[@pos]
