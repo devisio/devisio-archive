@@ -5,10 +5,13 @@ class Gallery
     <div class="gallery">
       <a class="close">&times;</a>
       <img src="" alt="" />
-      <a class="prev">‹</a>
-      <a class="next">›</a>
     </div>
-    <div class="gallery-background"></div>'''
+    <div class="gallery-background">
+      <div class="navigation">
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+      </div>
+    </div>'''
   margin: 20
 
   constructor: (@images) ->
@@ -51,10 +54,10 @@ class Gallery
         this.close()
     $(window).bind 'resize', (evt) =>
       this.updatePosition()
-    $('.gallery > a.next').bind 'click', (evt) =>
+    $('.gallery-background a.next').bind 'click', (evt) =>
       evt.preventDefault()
       this.next()
-    $('.gallery > a.prev').bind 'click', (evt) =>
+    $('.gallery-background a.prev').bind 'click', (evt) =>
       evt.preventDefault()
       this.prev()
     $('.gallery > img').bind 'click', (evt) =>

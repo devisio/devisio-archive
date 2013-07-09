@@ -9,6 +9,11 @@
   z-index: 100
   opacity: 0
 
+  > .navigation
+    position: fixed
+    right: 0
+    bottom: 0
+
 .gallery
   position: fixed
   top: 0
@@ -18,37 +23,26 @@
     img
       max-height: 100%
       max-width: 100%
-    a
-      display: block
-      position: fixed
-      cursor: pointer
-      color: #c6c6c6
-      text-shadow: 0 0 1px black
-      padding: 20px
-      margin-top: -50px
-      -webkit-transition: opacity 0.3s linear
-      -moz-transition: opacity 0.3s linear
-      -ms-transition: opacity 0.3s linear
-      -o-transition: opacity 0.3s linear
-      transition: opacity 0.3s linear
-    a:not(.close)
-      opacity: 0
-      top: 50%
-      font-size: 80px
-      line-height: 60px
-    a.close
-      font-weight: bold
-      top: 40px
-      right: 0
-      font-size: 35px
-      line-height: 35px
-      padding: 15px
-  &:hover > a
-    opacity: 1
-  >
-    .prev
-      left: 0
-      text-align: left
-    .next
-      right: 0
-      text-align: right
+.gallery,
+.gallery-background
+  a
+    display: block
+    cursor: pointer
+    color: #c6c6c6
+    text-shadow: 0 0 1px black
+    padding: 15px
+    margin-top: -50px
+    font-size: 35px
+    line-height: 35px
+    font-weight: bold
+    -webkit-transition: opacity 0.3s linear
+    -moz-transition: opacity 0.3s linear
+    -ms-transition: opacity 0.3s linear
+    -o-transition: opacity 0.3s linear
+    transition: opacity 0.3s linear
+  a.close
+    position: fixed
+    top: 40px
+    right: 0
+  a:not(.close)
+    float: left
