@@ -1,8 +1,9 @@
 from django.conf.urls import patterns, url
 
-from devisio.journals.views import JournalsListView
+from devisio.journals.views import JournalsListView, JournalsTeaserView
 
 
 urlpatterns = patterns('',
-    url(r'^$', JournalsListView.as_view(), name='list'),
+    url(r'^$', JournalsTeaserView.as_view(), name='teaser'),
+    url(r'^list/$', JournalsListView.as_view(), name='list'),
 )
