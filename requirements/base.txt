@@ -1,4 +1,4 @@
-django==1.5.1
+django==1.5.2
 south==0.8.1
 psycopg2==2.5.1
 pillow==2.1.0
