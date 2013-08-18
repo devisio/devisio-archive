@@ -13,9 +13,10 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=1),
                       keep_default=False)
 
-        for index, photo in enumerate(orm.Photo.objects.all()):
-            photo.position = index + 1
-            photo.save()
+        if not db.dry_run:
+            for index, photo in enumerate(orm.Photo.objects.all()):
+                photo.position = index + 1
+                photo.save()
 
     def backwards(self, orm):
         # Deleting field 'Photo.position'
