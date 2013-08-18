@@ -1,6 +1,7 @@
 *.pyc
 *.swp
 *.swo
+/sqlite.db
 # folders
 .idea/
 /.sass-cache/
