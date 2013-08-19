@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="twelve columns">
+    <div class="page-header">
+      <h2>Journals</h2>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="twelve columns">
+    {% for journal in journal_list %}
+    {{journal.name}}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

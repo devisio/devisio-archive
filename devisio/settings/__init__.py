@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     # devisio
     'devisio.accounts',
     'devisio.photos',
+    'devisio.journals',
 )
 
 AUTH_USER_MODEL = 'accounts.Account'
