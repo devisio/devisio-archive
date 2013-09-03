@@ -27,23 +27,25 @@
       <header>
         <div class="row">
           <div class="four columns">
-            <a href="{% url "photos:list" %}">
+            <a data-pjax href="{% url "photos:list" %}">
               <h1>{% include "logo.svg" %} devisio</h1>
             </a>
           </div>
           <div class="eight columns">
             <ul class="link-list right">
-              <li><a href="{% url "photos:overview" %}">Overview</a></li>
-              <li><a href="{% url "journals:teaser" %}">Journals</a></li>
-              <li><a href="{% url "about" %}">About</a></li>
-              <li><a href="{% url "contact" %}">Contact</a></li>
-              <li><a href="{% url "imprint" %}">Imprint</a></li>
+              <li><a data-pjax href="{% url "photos:overview" %}">Overview</a></li>
+              <li><a data-pjax href="{% url "journals:teaser" %}">Journals</a></li>
+              <li><a data-pjax href="{% url "common:about" %}">About</a></li>
+              <li><a data-pjax href="{% url "common:contact" %}">Contact</a></li>
+              <li><a data-pjax href="{% url "common:imprint" %}">Imprint</a></li>
             </ul>
           </div>
         </div>
       </header>
       <content>
+      <div id="pjax-container">
         {% block content %}{% endblock %}
+      </div>
       </content>
       <footer>
         <div class="row">
@@ -63,6 +65,12 @@
     </div>
     {% compress js %}
     <script src="{{STATIC_URL}}javascripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="{{STATIC_URL}}javascripts/jquery.pjax.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).pjax('a[data-pjax]', '#pjax-container')
+      });
+    </script>
     <script src="{{STATIC_URL}}coffeescripts/app.coffee" type="text/coffeescript"></script>
     <script src="{{STATIC_URL}}coffeescripts/album.coffee" type="text/coffeescript"></script>
     <script type="text/javascript">

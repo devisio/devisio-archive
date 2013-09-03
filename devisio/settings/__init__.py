@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     #
     'compressor',
     # devisio
+    'devisio.common',
     'devisio.accounts',
     'devisio.photos',
     'devisio.journals',
