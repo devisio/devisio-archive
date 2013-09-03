@@ -5,7 +5,6 @@ from django.contrib import admin
 
 from filebrowser.sites import site
 
-from devisio.common.views import AboutView, ContactView, ImprintView
 
 
 admin.autodiscover()
@@ -13,9 +12,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^', include('devisio.photos.urls', namespace='photos')),
     url(r'^journals/', include('devisio.journals.urls', namespace='journals')),
-    url(r'^about/$', AboutView.as_view(), name='about'),
-    url(r'^contact/$', ContactView.as_view(), name='contact'),
-    url(r'^imprint/$', ImprintView.as_view(), name='imprint'),
+    url(r'^', include('devisio.common.urls', namespace='common')),
 
     # admin
     url(r'^admin/filebrowser/', include(site.urls)),
