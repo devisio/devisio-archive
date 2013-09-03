@@ -4,12 +4,12 @@ from devisio.common.pjax import PJAXResponseMixin
 
 
 class AboutView(PJAXResponseMixin, TemplateView):
-    template_name='devisio/about.html'
+    template_name='common/about.html'
 
 
 class ContactView(PJAXResponseMixin, TemplateView):
-    template_name='devisio/contact.html'
+    template_name='common/contact.html'
 
 
 class ImprintView(PJAXResponseMixin, TemplateView):
-    template_name='devisio/imprint.html'
+    template_name='common/imprint.html'
