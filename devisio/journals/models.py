@@ -9,3 +9,9 @@ class Journal(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class JournalEntry(models.Model):
+    journal = models.ForeignKey(Journal)
+    location = models.CharField(max_length=255)
+    datetime = models.DateTimeField()

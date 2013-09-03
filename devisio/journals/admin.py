@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 
-from devisio.journals.models import Journal
+from devisio.journals.models import Journal, JournalEntry
 
 
 class JournalAdmin(admin.ModelAdmin):
@@ -13,3 +13,4 @@ class JournalAdmin(admin.ModelAdmin):
         obj.save()
 
 admin.site.register(Journal, JournalAdmin)
+admin.site.register(JournalEntry)
