@@ -10,15 +10,15 @@ from filebrowser.sites import site
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^', include('devisio.photos.urls', namespace='photos')),
-    url(r'^journals/', include('devisio.journals.urls', namespace='journals')),
-    url(r'^', include('devisio.common.urls', namespace='common')),
-
     # admin
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
+
+    url(r'^journals/', include('devisio.journals.urls', namespace='journals')),
+    url(r'^', include('devisio.common.urls', namespace='common')),
+    url(r'^', include('devisio.photos.urls', namespace='photos')),
 )
 
 
