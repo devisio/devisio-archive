@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.utils import simplejson as json
-from django.views.generic import ListView
+from django.views.generic import DetailView, ListView
 from django.views.generic.detail import BaseDetailView
 
 from devisio.common.pjax import PJAXResponseMixin
@@ -25,6 +25,13 @@ class AlbumJsonDetailView(BaseDetailView):
 
     def render_to_response(self, context):
         return HttpResponse(self.serialize_album(context['object']), content_type='application/json')
+
+
+class AlbumPjaxDetailView(DetailView):
+    model = Album
+
+    def get_template_names(self):
+        return 'photos/album_detail.html'
 
 
 class AlbumListView(PJAXResponseMixin, ListView):
