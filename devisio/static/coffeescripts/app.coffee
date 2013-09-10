@@ -23,3 +23,6 @@ class Album
 
 
 document.albums = new AlbumManager()
+
+jQuery(document).on 'pjax:end', () ->
+  document.albums = new AlbumManager()

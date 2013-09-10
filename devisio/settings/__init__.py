@@ -125,8 +125,10 @@ INSTALLED_APPS = (
     #
     'compressor',
     # devisio
+    'devisio.common',
     'devisio.accounts',
     'devisio.photos',
+    'devisio.journals',
 )
 
 AUTH_USER_MODEL = 'accounts.Account'

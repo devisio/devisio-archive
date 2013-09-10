@@ -3,6 +3,7 @@ from django.utils import simplejson as json
 from django.views.generic import ListView
 from django.views.generic.detail import BaseDetailView
 
+from devisio.common.pjax import PJAXResponseMixin
 from models import Album
 
 
@@ -26,12 +27,12 @@ class AlbumJsonDetailView(BaseDetailView):
         return HttpResponse(self.serialize_album(context['object']), content_type='application/json')
 
 
-class AlbumListView(ListView):
+class AlbumListView(PJAXResponseMixin, ListView):
     def get_queryset(self):
         return Album.objects.visible()[:6]
 
 
-class OverviewView(ListView):
+class OverviewView(PJAXResponseMixin, ListView):
     template_name = 'photos/overview.html'
 
     def get_queryset(self):
