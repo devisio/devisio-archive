@@ -139,4 +139,4 @@ class Command(BaseCommand):
         user_data['password'] = password
         self.UserModel._default_manager.db_manager(database).create_superuser(**user_data)
         if verbosity >= 1:
-            self.stdout.write("Superuser created successfully.")
+            self.stdout.write("Account created successfully.")
