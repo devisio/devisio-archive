@@ -1,6 +1,5 @@
 django==1.5.2
 south==0.8.1
-psycopg2==2.5.1
 pillow==2.1.0
 django-grappelli==2.4.5
 django-filebrowser==3.5.2
