@@ -1,5 +1,7 @@
 {% extends parent %}
 
+{% load compress %}
+
 {% block content %}
 <div class="row">
   <div class="twelve columns">
@@ -10,9 +12,21 @@
 </div>
 <div class="row">
   <div class="twelve columns">
-    {% for journal in journal_list %}
-    {{journal.name}}
-    {% endfor %}
+    <div id="map-canvas" style="width: 100%; height: 700px;"></div>
   </div>
 </div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.13&key=AIzaSyAPF9Px1e0Tz5TOh-TdcUFtBFLG1CmDzIc&sensor=false"></script>
+{% compress js %}
+<script src="{{STATIC_URL}}coffeescripts/maps-api.coffee" type="text/coffeescript"></script>
+{% endcompress %}
+<script type="text/javascript">
+  var locations = [
+  {% for journal in journal_list %}  [{{journal.location}}],
+  {% endfor %}];
+
+  google.maps.event.addDomListener(window, 'load', initializeMaps);
+</script>
 {% endblock %}
