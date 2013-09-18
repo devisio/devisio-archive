@@ -2,9 +2,9 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import TemplateView
 
 from filebrowser.sites import site
+
 
 
 admin.autodiscover()
@@ -12,9 +12,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^', include('devisio.photos.urls', namespace='photos')),
     url(r'^journals/', include('devisio.journals.urls', namespace='journals')),
-    url(r'^about/$', TemplateView.as_view(template_name='devisio/about.html'), name='about'),
-    url(r'^contact/$', TemplateView.as_view(template_name='devisio/contact.html'), name='contact'),
-    url(r'^imprint/$', TemplateView.as_view(template_name='devisio/imprint.html'), name='imprint'),
+    url(r'^', include('devisio.common.urls', namespace='common')),
 
     # admin
     url(r'^admin/filebrowser/', include(site.urls)),
