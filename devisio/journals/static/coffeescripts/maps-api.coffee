@@ -37,6 +37,9 @@
 
   addLocation journal['location'], journal['slug'] for journal in journals
 
-  if journals.length > 1
+  resetMap = () ->
     map.setCenter bounds.getCenter()
     map.fitBounds bounds
+
+  if journals.length > 1
+    resetMap()
