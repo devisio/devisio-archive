@@ -21,14 +21,17 @@
     googleLocation = new google.maps.LatLng(location[0], location[1])
     marker = new google.maps.Marker({
       position: googleLocation
+      #icon: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/211080_255490747861760_412573813_q.jpg',
       map: map,
+      title: 'Click to view details',
       slug: slug
     })
 
     google.maps.event.addListener marker, 'click', (evt) ->
-      console.log marker.slug
-      map.setCenter marker.getPosition()
+      document.getElementById('map-canvas').style.height = '200px'
+      google.maps.event.trigger(map, "resize")
       map.setZoom 10
+      map.setCenter marker.getPosition()
 
     bounds.extend googleLocation
 
