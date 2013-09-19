@@ -11,22 +11,23 @@
     scrollwheel: false,
     disableDoubleClickZoom: true,
     zoom: 5,
-    center: new google.maps.LatLng(locations[0][0], locations[0][1]),
+    center: new google.maps.LatLng(journals[0]['location'][0], journals[0]['location'][1]),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   })
 
   bounds = new google.maps.LatLngBounds()
 
-  addLocation = (location) ->
+  addLocation = (location, slug) ->
     googleLocation = new google.maps.LatLng(location[0], location[1])
     marker = new google.maps.Marker({
       position: googleLocation
-      map: map
+      map: map,
+      slug: slug
     })
     bounds.extend googleLocation
 
-  addLocation location for location in locations
+  addLocation journal['location'], journal['slug'] for journal in journals
 
-  if locations.length > 1
+  if journals.length > 1
     map.setCenter bounds.getCenter()
     map.fitBounds bounds

@@ -23,8 +23,8 @@
 <script src="{{STATIC_URL}}coffeescripts/maps-api.coffee" type="text/coffeescript"></script>
 {% endcompress %}
 <script type="text/javascript">
-  var locations = [
-  {% for journal in journal_list %}  [{{journal.location}}],
+  var journals = [
+  {% for journal in journal_list %}  {'location': [{{journal.location}}], 'slug': '{{journal.slug}}'},
   {% endfor %}];
 
   google.maps.event.addDomListener(window, 'load', initializeMaps);
