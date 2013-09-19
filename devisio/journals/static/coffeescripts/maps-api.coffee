@@ -3,6 +3,10 @@
 
   map = new google.maps.Map(document.getElementById("map-canvas"), {
     disableDefaultUI: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
     draggable: false,
     zoom: 5,
     center: new google.maps.LatLng(locations[0][0], locations[0][1]),
