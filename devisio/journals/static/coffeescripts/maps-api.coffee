@@ -8,6 +8,8 @@
       style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
     },
     draggable: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
     zoom: 5,
     center: new google.maps.LatLng(locations[0][0], locations[0][1]),
     mapTypeId: google.maps.MapTypeId.ROADMAP
