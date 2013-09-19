@@ -24,6 +24,10 @@
       map: map,
       slug: slug
     })
+
+    google.maps.event.addListener marker, 'click', (evt) ->
+      console.log marker.slug
+
     bounds.extend googleLocation
 
   addLocation journal['location'], journal['slug'] for journal in journals
