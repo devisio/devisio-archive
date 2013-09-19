@@ -27,6 +27,8 @@
 
     google.maps.event.addListener marker, 'click', (evt) ->
       console.log marker.slug
+      map.setCenter marker.getPosition()
+      map.setZoom 10
 
     bounds.extend googleLocation
 
