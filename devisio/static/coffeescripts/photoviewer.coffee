@@ -25,8 +25,7 @@ class PhotoViewer
   displayPhoto: () ->
     photo = @photos[@pos % @photos.length]
     @photoContainer.attr 'src', photo.src
-    @photoContainer.css 'width', photo.width
-    @photoContainer.css 'height', photo.height
+    this.resizePhoto()
 
   _translatePosition: () ->
    @pos = @pos % @photos.length
@@ -48,8 +47,35 @@ class PhotoViewer
     this.displayPhoto()
     this.updatePositionURL()
 
+  resizePhoto: () ->
+    windowWidth = $(window).width()
+    windowHeight = $(window).height()
+
+    photo = @photos[@pos]
+
+    margin = 60
+
+    width = -2 * margin
+    height = -2 * margin
+
+    if windowWidth / photo.width > windowHeight / photo.height
+      width += windowHeight * photo.ratio
+      height += windowHeight
+    else
+      width += windowWidth
+      height += windowWidth / photo.ratio
+
+    deltaWidth = windowWidth - width
+    deltaHeight = windowHeight - height
+
+    @photoContainer.css({
+      width: width+'px',
+      height: height+'px',
+    })
 
   registerListeners: () ->
+    $(window).bind 'resize', (evt) =>
+      this.resizePhoto()
     $(document).bind 'keyup', (evt) =>
       switch evt.keyCode
         when 37 then this.prevPhoto()
