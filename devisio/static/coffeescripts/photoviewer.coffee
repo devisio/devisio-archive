@@ -9,7 +9,14 @@ class PhotoViewer
 
     @photoContainer = $('#photoviewer > .gallery > img')
 
-    this.displayPhoto(0)
+    if window.location.hash
+      @pos = window.location.hash.substring(1)
+    else
+      @pos = 0
+    this.updatePositionURL()
+
+    this.displayPhoto(@pos)
+    this.registerListeners()
 
   addPhoto: (photo) ->
     photo.ratio = photo.width / photo.height
@@ -26,15 +33,20 @@ class PhotoViewer
    if @pos < 0
      @pos = @photos.length
 
+  updatePositionURL: () ->
+    window.location.hash = '#' + @pos
+
   nextPhoto: () ->
     @pos++
     this._translatePosition()
     this.displayPhoto()
+    this.updatePositionURL()
 
   prevPhoto: () ->
     @pos--
     this._translatePosition()
     this.displayPhoto()
+    this.updatePositionURL()
 
 
   registerListeners: () ->
