@@ -38,4 +38,7 @@ deployfolders:
 shell: requirements
 	$(MANAGE_PY) shell --settings=$(SETTINGS_PARAM)
 
+createaccount: requirements
+	$(MANAGE_PY) createaccount --settings=$(SETTINGS_PARAM)
+
 .PHONY: privateserver server
