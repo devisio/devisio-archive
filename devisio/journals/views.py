@@ -1,4 +1,4 @@
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView
 
 from devisio.common.pjax import PJAXResponseMixin
 from devisio.journals.models import Journal
@@ -9,4 +9,8 @@ class JournalsTeaserView(PJAXResponseMixin, TemplateView):
 
 
 class JournalsListView(PJAXResponseMixin, ListView):
+    model = Journal
+
+
+class JournalsDetailView(PJAXResponseMixin, DetailView):
     model = Journal
