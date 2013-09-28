@@ -52,10 +52,7 @@ class PhotoViewer
 
     photo = @photos[@pos]
 
-    margin = 60
-
-    width = -2 * margin
-    height = -2 * margin
+    width = height = -120
 
     if windowWidth / photo.width > windowHeight / photo.height
       width += windowHeight * photo.ratio
@@ -64,12 +61,9 @@ class PhotoViewer
       width += windowWidth
       height += windowWidth / photo.ratio
 
-    deltaWidth = windowWidth - width
-    deltaHeight = windowHeight - height
-
     @photoContainer.css({
-      width: width+'px',
-      height: height+'px',
+      width: width + 'px',
+      height: height + 'px',
     })
 
   registerListeners: () ->
