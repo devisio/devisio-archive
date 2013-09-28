@@ -1,7 +1,6 @@
 $ = jQuery
 
 class PhotoViewer
-
   constructor: (data) ->
     @photos = new Array(0)
     json = JSON.parse(data)
