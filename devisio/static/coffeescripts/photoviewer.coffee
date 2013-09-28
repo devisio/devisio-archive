@@ -9,10 +9,15 @@ class PhotoViewer
 
     @photoContainer = $('#photoviewer > .gallery > img')
 
+    @pos = 0
     if window.location.hash
-      @pos = window.location.hash.substring(1)
-    else
-      @pos = 0
+      @pos = parseInt window.location.hash.substring(1)
+      if isNaN(@pos)
+        @pos = 0
+        this.updatePositionURL()
+      else
+        this._translatePosition()
+        this.updatePositionURL()
 
     this.displayPhoto(@pos)
     this.registerListeners()
@@ -32,7 +37,7 @@ class PhotoViewer
      @pos = @photos.length
 
   updatePositionURL: () ->
-    window.location.hash = '#' + @pos
+    window.location.hash = @pos
 
   nextPhoto: () ->
     @pos++
