@@ -13,7 +13,6 @@ class PhotoViewer
       @pos = window.location.hash.substring(1)
     else
       @pos = 0
-    this.updatePositionURL()
 
     this.displayPhoto(@pos)
     this.registerListeners()
