@@ -5,6 +5,8 @@ class PhotoViewer
     @photos = new Array(0)
     json = JSON.parse(data)
 
+    @fullscreen = false
+
     this.addPhoto photo for photo in json
 
     @photoContainer = $('#photoviewer > .gallery > img')
@@ -57,7 +59,10 @@ class PhotoViewer
 
     photo = @photos[@pos]
 
-    width = height = -120
+    if @fullscreen
+      width = height = -2 * 20
+    else
+      width = height = -120
 
     if windowWidth / photo.width > windowHeight / photo.height
       width += windowHeight * photo.ratio
@@ -70,6 +75,18 @@ class PhotoViewer
       width: width + 'px',
       height: height + 'px',
     })
+
+    if @fullscreen
+      deltaHeight = windowHeight - height
+    else
+      deltaHeight = 0
+
+    $('#photoviewer .photo').css('margin-top': (deltaHeight / 2)+'px')
+
+  toggleFullscreen: () ->
+    $('#photoviewer').toggleClass('fullscreen')
+    @fullscreen = !@fullscreen
+    this.resizePhoto()
 
   registerListeners: () ->
     $(window).bind 'resize', (evt) =>
@@ -86,7 +103,7 @@ class PhotoViewer
       this.prevPhoto()
     $('#photoviewer a.fullscreen').bind 'click', (evt) =>
       evt.preventDefault()
-      $('#photoviewer').toggleClass('fullscreen')
+      this.toggleFullscreen()
 
 
 
