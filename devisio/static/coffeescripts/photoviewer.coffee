@@ -84,6 +84,9 @@ class PhotoViewer
     $('#photoviewer a.prev').bind 'click', (evt) =>
       evt.preventDefault()
       this.prevPhoto()
+    $('#photoviewer a.fullscreen').bind 'click', (evt) =>
+      evt.preventDefault()
+      $('#photoviewer').toggleClass('fullscreen')
 
 
 
