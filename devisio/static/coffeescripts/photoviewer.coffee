@@ -50,6 +50,10 @@ class PhotoViewer
 
 
   registerListeners: () ->
+    $(document).bind 'keyup', (evt) =>
+      switch evt.keyCode
+        when 37 then this.prevPhoto()
+        when 39 then this.nextPhoto()
     $('#photoviewer a.next').bind 'click', (evt) =>
       evt.preventDefault()
       this.nextPhoto()
