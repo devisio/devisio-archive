@@ -83,6 +83,11 @@ class PhotoViewer
 
     $('#photoviewer .photo').css('margin-top': (deltaHeight / 2)+'px')
 
+  closeFullscreen: () ->
+    $('#photoviewer').removeClass('fullscreen')
+    @fullscreen = false
+    this.resizePhoto()
+
   toggleFullscreen: () ->
     $('#photoviewer').toggleClass('fullscreen')
     @fullscreen = !@fullscreen
@@ -93,6 +98,7 @@ class PhotoViewer
       this.resizePhoto()
     $(document).bind 'keyup', (evt) =>
       switch evt.keyCode
+        when 27 then this.closeFullscreen()
         when 37 then this.prevPhoto()
         when 39 then this.nextPhoto()
     $('#photoviewer a.next').bind 'click', (evt) =>
