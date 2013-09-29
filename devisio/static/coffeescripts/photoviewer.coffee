@@ -72,7 +72,7 @@ class PhotoViewer
       height += windowWidth / photo.ratio
 
     @photoContainer.css({
-      width: width + 'px',
+      #width: width + 'px',
       height: height + 'px',
     })
 
