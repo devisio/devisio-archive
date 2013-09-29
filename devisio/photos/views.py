@@ -32,7 +32,7 @@ class AlbumListView(PJAXResponseMixin, ListView):
         return Album.objects.visible()[:6]
 
 
-class OverviewView(PJAXResponseMixin, ListView):
+class AlbumOverviewView(PJAXResponseMixin, ListView):
     template_name = 'photos/album_overview.html'
 
     def get_queryset(self):
