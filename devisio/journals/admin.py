@@ -4,7 +4,14 @@ from django.contrib.auth import get_user_model
 from devisio.journals.models import Journal, JournalEntry
 
 
+class JournalEntryInline(admin.TabularInline):
+    model = JournalEntry
+    extra = 0
+
+
 class JournalAdmin(admin.ModelAdmin):
+    inlines = [JournalEntryInline]
+
     def save_model(self, request, obj, form, change):
         try:
             obj.owner
