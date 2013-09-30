@@ -16,3 +16,7 @@ class JournalEntry(models.Model):
     journal = models.ForeignKey(Journal)
     location = models.CharField(max_length=255)
     datetime = models.DateTimeField()
+
+    class Meta:
+        verbose_name = "Journal entry"
+        verbose_name_plural = "Journal entries"
