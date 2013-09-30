@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.conf import settings
 from django.db import models
 
@@ -15,7 +17,7 @@ class Journal(models.Model):
 class JournalEntry(models.Model):
     journal = models.ForeignKey(Journal)
     location = models.CharField(max_length=255)
-    datetime = models.DateTimeField()
+    datetime = models.DateTimeField(default=datetime.now())
 
     class Meta:
         verbose_name = "Journal entry"
