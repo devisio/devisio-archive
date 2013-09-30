@@ -13,7 +13,7 @@
 <div class="row">
   {% for album in album_list %}
   <div class="two columns">
-    <a href="#album-{{album.id}}" data-album-id="{{album.id}}" class="avatar-resize">
+    <a href="{% url 'photos:detail' album.slug%}" data-pjax rel="gallery" class="avatar-resize">
       {% with album.photos.all|first as photo %}
       <p><img src="{% version photo.image 'avatar' %}" alt="" class="avatar" /></p>
       {% endwith %}
