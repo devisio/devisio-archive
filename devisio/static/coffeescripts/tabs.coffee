@@ -9,6 +9,7 @@ initializeTabs = () ->
   if $('.tabs').children('.tab.active').length <= 0
     $('.tabs').children().first().addClass 'active'
   $('.tab-link').on 'click', (evt) ->
+    evt.preventDefault()
     targetId = $(evt.target).attr('href').substring(1)
 
     targetElement = $('.tabs > .tab[data-tab=' + targetId + ']')
