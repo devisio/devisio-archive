@@ -8,6 +8,11 @@ class JournalsTeaserView(PJAXResponseMixin, TemplateView):
     template_name = 'journals/journal_teaser.html'
 
 
+class JournalsMapView(PJAXResponseMixin, ListView):
+    model = Journal
+    template_name = 'journals/journal_map.html'
+
+
 class JournalsListView(PJAXResponseMixin, ListView):
     model = Journal
 
