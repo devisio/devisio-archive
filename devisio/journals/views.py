@@ -14,7 +14,8 @@ class JournalsMapView(PJAXResponseMixin, ListView):
 
 
 class JournalsListView(PJAXResponseMixin, ListView):
-    model = Journal
+    def get_queryset(self):
+        return Journal.objects.get_valid()
 
 
 class JournalsDetailView(PJAXResponseMixin, DetailView):
