@@ -22,6 +22,9 @@ class Journal(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_highlight_photos(self):
+        return JournalPhoto.objects.filter(entry__journal=self, highlight=True)
+
 
 class JournalEntry(models.Model):
     journal = models.ForeignKey(Journal, related_name='entries')
