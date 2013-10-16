@@ -1,6 +1,7 @@
 {% extends parent %}
 
 {% load compress %}
+{% load fb_versions %}
 
 {% block content %}
 <div class="row">
@@ -19,6 +20,9 @@
   <div class="twelve columns">
     {% for journal in journal_list %}
     <div class="six columns">
+      <a href="{% url 'journals:detail' journal.slug %}">
+        <img src="{% version journal.get_highlight_photos.0.image 'avatar' %}" alt="Highlight" class="avatar" style="display: inline;">
+      </a>
       <a href="{% url 'journals:detail' journal.slug %}">
         <h4>{{journal.name}}</h4>
       </a>
