@@ -6,11 +6,18 @@ from django.db import models
 from filebrowser.fields import FileBrowseField
 
 
+class JournalManager(models.Manager):
+    def get_valid(self):
+        return self.filter(entries__photos__highlight=True)
+
+
 class Journal(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField()
     location = models.CharField(max_length=255)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False)
+
+    objects = JournalManager()
 
     def __unicode__(self):
         return self.name
