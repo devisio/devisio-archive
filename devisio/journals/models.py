@@ -28,6 +28,9 @@ class JournalEntry(models.Model):
         verbose_name = "Journal entry"
         verbose_name_plural = "Journal entries"
 
+    def __unicode__(self):
+        return u'%s - %s' % (self.journal, self.headline)
+
 
 class JournalPhoto(models.Model):
     entry = models.ForeignKey(JournalEntry, related_name='photos')
