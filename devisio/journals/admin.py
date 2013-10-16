@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 
-from devisio.journals.models import Journal, JournalEntry
+from devisio.journals.models import Journal, JournalEntry, JournalPhoto
 
 
 class JournalEntryInline(admin.TabularInline):
@@ -21,3 +21,4 @@ class JournalAdmin(admin.ModelAdmin):
 
 admin.site.register(Journal, JournalAdmin)
 admin.site.register(JournalEntry)
+admin.site.register(JournalPhoto)
