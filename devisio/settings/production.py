@@ -18,3 +18,5 @@ DATABASES = {
 ALLOWED_HOSTS = ['www.devisio.net', 'devisio.net']
 
 STATIC_URL = 'http://www.devisio.net/static/'
+
+MEDIA_URL = 'http://www.devisio.net/media/'
