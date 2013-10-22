@@ -1,12 +1,15 @@
 {% extends parent %}
 
+{% load absurl %}
+
 {% block content %}
 <div id="photoviewer">
   <div class="gallery">
     <img src="" class="photo" alt="" title="Click to show next photo." />
   </div>
   <div class="actions">
-    <a class="share" title="Share"><i class="icon-share-alt"></i></a>
+    <a class="share" href="https://plus.google.com/share?url={% absurl 'photos:detail' album %}" target="_blank" title="Share on Google+"><i class="icon-google-plus"></i></a>
+    <a class="share" href="https://www.facebook.com/sharer/sharer.php?u={% absurl 'photos:detail' album %}" target="_blank" title="Share on Facebook"><i class="icon-facebook"></i></a>
     <a class="fullscreen" title="Toggle fullscreen"><i class="icon-fullscreen"></i></a>
   </div>
   <div class="navigation">
