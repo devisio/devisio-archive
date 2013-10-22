@@ -1,8 +1,9 @@
 {% extends parent %}
 
+{% load fb_versions %}
 {% load absurl %}
 
-{% block og-image %}{{album.photos.all.0.image.url}}{% endblock %}
+{% block og-image %}{% version album.photos.all.0.image 'album-bubble' %}{% endblock %}
 
 {% block content %}
 <div id="photoviewer">
