@@ -3,6 +3,7 @@
 {% load fb_versions %}
 {% load absurl %}
 
+{% block og-url %}{% absurl 'photos:detail' album.slug %}{% endblock %}
 {% block og-image %}{% version album.photos.all.0.image 'album-bubble' %}{% endblock %}
 
 {% block content %}
