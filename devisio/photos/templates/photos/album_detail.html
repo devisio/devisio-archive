@@ -2,6 +2,8 @@
 
 {% load absurl %}
 
+{% block og-image %}{{album.photos.all.0.image.url}}{% endblock %}
+
 {% block content %}
 <div id="photoviewer">
   <div class="gallery">

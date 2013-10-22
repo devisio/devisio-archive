@@ -11,7 +11,7 @@
     <meta property="og:title" content="devisio" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="A small event based foto blog." />
-    <meta property="og:image" content="{{STATIC_URL}}images/logo.jpg" />
+    <meta property="og:image" content="{% block og-image %}{{STATIC_URL}}images/logo.jpg{% endblock %}" />
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
