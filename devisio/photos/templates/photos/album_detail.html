@@ -1,5 +1,6 @@
 {% extends parent %}
 
+{% load compress %}
 {% load fb_versions %}
 {% load absurl %}
 
@@ -21,9 +22,17 @@
     <a class="next" title="Next photo"><i class="icon-chevron-right"></i></a>
   </div>
 </div>
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    new document.PhotoViewer('{{json|safe}}');
-  });
+{% compress js %}
+<script type="text/coffeescript">
+updatePhotoUrl = (element, pos) ->
+  link = element.attr 'href'
+  parts = link.split('#')
+  element.attr 'href', parts[0] + '#' + pos
+
+jQuery(document).ready () ->
+  viewer = new document.PhotoViewer('{{json|safe}}')
+  $(viewer).on 'photoChange', (evt) ->
+      updatePhotoUrl $(element), viewer.pos for element in $('#photoviewer > .actions > a.share')
 </script>
+{% endcompress %}
 {% endblock %}
