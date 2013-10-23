@@ -25,9 +25,11 @@
 {% compress js %}
 <script type="text/coffeescript">
 updatePhotoUrl = (element, pos) ->
-  link = element.attr 'href'
-  parts = link.split('#')
-  element.attr 'href', parts[0] + '#' + pos
+  link = element.attr 'data-href'
+  if link is undefined or link is false
+    link = element.attr 'href'
+    element.attr('data-href', link)
+  element.attr('href', link + pos + '/')
 
 jQuery(document).ready () ->
   viewer = new document.PhotoViewer('{{json|safe}}')
