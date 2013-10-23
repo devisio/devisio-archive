@@ -1,8 +1,14 @@
 from django.utils import simplejson as json
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, RedirectView
+from django.core.urlresolvers import reverse
 
 from devisio.common.pjax import PJAXResponseMixin
 from models import Album
+
+
+class PhotoShareView(RedirectView):
+    def get_redirect_url(self, **kwargs):
+        return reverse('photos:detail', args=[self.kwargs['slug']]) + '#' + self.kwargs['photoid']
 
 
 class AlbumDetailView(PJAXResponseMixin, DetailView):
