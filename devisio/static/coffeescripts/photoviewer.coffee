@@ -46,12 +46,14 @@ class PhotoViewer
     this._translatePosition()
     this.displayPhoto()
     this.updatePositionURL()
+    $(this).triggerHandler('photoChange')
 
   prevPhoto: () ->
     @pos--
     this._translatePosition()
     this.displayPhoto()
     this.updatePositionURL()
+    $(this).triggerHandler('photoChange')
 
   resizePhoto: () ->
     windowWidth = $(window).width()
