@@ -8,7 +8,7 @@ from filebrowser.fields import FileBrowseField
 
 class JournalManager(models.Manager):
     def get_valid(self):
-        return self.filter(entries__photos__highlight=True)
+        return self.filter(entries__photos__highlight=True).distinct()
 
 
 class Journal(models.Model):
