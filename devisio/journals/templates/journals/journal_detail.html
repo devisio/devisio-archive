@@ -1,5 +1,6 @@
 {% extends parent %}
 
+{% load fb_versions %}
 {% load compress %}
 
 {% block content %}
@@ -18,7 +19,13 @@
 <div class="row">
   <div class="twelve columns">
     {% for entry in journal.entries.all %}
-    {{entry.get_photos}}
+    <h3>{{entry.headline}} <small>{{entry.datetime|date}}</small></h3>
+    <p>{{entry.text}}</p>
+    <div style="text-align: center">
+      {% for photo in entry.photos.all %}
+      <img src="{% version photo.image 'avatar' %}" class="avatar" style="margin: 0 10px;">
+      {% endfor %}
+    </div>
     {% endfor %}
   </div>
 </div>
