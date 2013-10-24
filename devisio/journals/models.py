@@ -56,3 +56,6 @@ class JournalPhoto(models.Model):
     entry = models.ForeignKey(JournalEntry, related_name='photos')
     image = FileBrowseField(max_length=200)
     highlight = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'%s - %s' % (self.entry, self.highlight)
