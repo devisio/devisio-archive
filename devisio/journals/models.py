@@ -14,6 +14,7 @@ class JournalManager(models.Manager):
 class Journal(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField()
+    description = models.TextField(blank=True)
     location = models.CharField(max_length=255)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False)
 
