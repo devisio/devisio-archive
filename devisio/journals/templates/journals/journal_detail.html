@@ -41,7 +41,7 @@
 {% compress js %}
 <script src="{{STATIC_URL}}coffeescripts/maps-api.coffee" type="text/coffeescript"></script>
 <script type="text/coffeescript">
-  journals = [
+  @journals = [
   {% for entry in journal.entries.all %}  {'location': [{{entry.location}}], 'slug': '{{entry.id}}'},
   {% endfor %}]
 
