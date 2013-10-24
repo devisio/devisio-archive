@@ -30,7 +30,7 @@ class Journal(models.Model):
         return self.entries.latest('datetime').datetime
 
     def get_headline_photo(self):
-        return JournalPhoto.objects.filter(entry__journal=self).order_by('-highlight', 'entry__datetime')
+        return JournalPhoto.objects.filter(entry__journal=self).order_by('-highlight', 'entry__datetime')[0]
 
     def get_highlight_photos(self):
         return JournalPhoto.objects.filter(entry__journal=self, highlight=True)
