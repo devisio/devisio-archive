@@ -22,6 +22,12 @@ class Journal(models.Model):
     def __unicode__(self):
         return self.name
 
+    def start_datetime(self):
+        return self.entries.order_by('datetime')[0].datetime
+
+    def end_datetime(self):
+        return self.entries.latest('datetime').datetime
+
     def get_highlight_photos(self):
         return JournalPhoto.objects.filter(entry__journal=self, highlight=True)
 
