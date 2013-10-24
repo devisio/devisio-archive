@@ -19,10 +19,14 @@
 <div class="row">
   <div class="twelve columns">
     {% for journal in journal_list %}
-    <div class="six columns">
+    <div class="six columns" style="margin-bottom: 50px;">
       <a href="{% url 'journals:detail' journal.slug %}">
-        <img src="{% version journal.get_highlight_photos.0.image 'avatar' %}" alt="Highlight" class="avatar" style="display: inline; vertical-align: middle">
-        <h4 style="display: inline; padding-left: 20px;">{{journal.name}}</h4>
+        <img src="{% version journal.get_highlight_photos.0.image 'avatar' %}" alt="Highlight" class="avatar" style="display: inline; vertical-align: top;">
+        <div style="display: inline-block; vertical-align: middle; height: 125px; clear: both;"></div>
+        <div style="display: inline-block; padding-left: 20px; vertical-align: middle;">
+          <h4 style="display: inline;">{{journal.name}}</h4><br>
+          <small>{{journal.start_datetime|date}} to {{journal.end_datetime|date}}</small>
+        </div>
       </a>
     </div>
     {% endfor %}
