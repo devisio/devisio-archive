@@ -20,3 +20,7 @@ class JournalsListView(PJAXResponseMixin, ListView):
 
 class JournalsDetailView(PJAXResponseMixin, DetailView):
     model = Journal
+
+
+class JournalEntryDetailView(PJAXResponseMixin, DetailView):
+    pass
