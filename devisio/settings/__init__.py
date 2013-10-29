@@ -153,6 +153,8 @@ FILEBROWSER_ADMIN_VERSIONS = ['admin_thumbnail']
 
 FILEBROWSER_VERSIONS_BASEDIR = 'versions/'
 
+FILEBROWSER_MAX_UPLOAD_SIZE = 20971520
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
