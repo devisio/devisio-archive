@@ -5,6 +5,8 @@ from django.contrib import admin
 
 from filebrowser.sites import site
 
+from devisio.common.views import GoogleVerification
+
 
 
 admin.autodiscover()
@@ -13,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^', include('devisio.photos.urls', namespace='photos')),
     url(r'^journals/', include('devisio.journals.urls', namespace='journals')),
     url(r'^', include('devisio.common.urls', namespace='common')),
+    url(r'^google597cf5de6df346e6.html$', GoogleVerification.as_view(), name='google-verification'),
 
     # admin
     url(r'^admin/filebrowser/', include(site.urls)),
