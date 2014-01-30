@@ -17,4 +17,13 @@ DATABASES = {
 COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = False
 
-INSTALLED_APPS = INSTALLED_APPS + ('django_extensions',)
+INTERNAL_IPS = (
+    'localhost',
+)
+
+DEVELOPMENT_APPS = (
+    'django_extensions',
+    'debug_toolbar',
+)
+
+INSTALLED_APPS = INSTALLED_APPS + DEVELOPMENT_APPS
