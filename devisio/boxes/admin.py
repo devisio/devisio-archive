@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from devisio.boxes.models import Box
+
+
+class BoxAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+
+
+admin.site.register(Box, BoxAdmin)
