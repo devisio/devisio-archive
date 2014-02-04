@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Box(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField()
+    description = models.TextField(blank=True, default='')
