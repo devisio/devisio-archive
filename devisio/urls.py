@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'devisio.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^', include('devisio.boxes.urls', namespace='boxes')),
 
     url(r'^admin/', include(admin.site.urls)),
 )
