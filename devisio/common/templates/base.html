@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>{% block title %}devisio{% endblock %}</title>
     {% compress css %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/vendor/normalize.css' %}">
     <link type="text/x-sass" rel="stylesheet" href="{% static 'sass/devisio.sass' %}">
     {% endcompress %}
   </head>
