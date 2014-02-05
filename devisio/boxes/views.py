@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from devisio.boxes.models import Box
+
+
+class BoxListView(ListView):
+    model = Box
