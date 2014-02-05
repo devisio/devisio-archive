@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for box in box_list %}
-{{box}}
-{% endfor %}
+<div class="boxes">
+  {% for box in box_list %}
+  <div class="box">
+    <a href="#" class="box-inner">
+      {{box}}
+    </a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
