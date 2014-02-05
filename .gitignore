@@ -2,6 +2,8 @@
 *.swo
 *.swp
 *.sqlite3
+# sass
+/.sass-cache/
 # target
 /.target
 # virtualenv folders
