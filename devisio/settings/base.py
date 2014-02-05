@@ -34,6 +34,7 @@ INTERNAL_APPS = (
 )
 
 EXTERNAL_APPS = (
+    'compressor',
 )
 
 INSTALLED_APPS = (
@@ -90,3 +91,15 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'deploy/static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/media')
+
+# Django compressor
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_PRECOMPILERS = (
+    ('text/x-sass', 'sass {infile} {outfile}'),
+    ('text/coffeescript', 'coffee --compile --stdio'),
+)
