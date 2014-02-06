@@ -1,0 +1,27 @@
+// base
+
+
+// http://css-tricks.com/box-sizing/
+*, *:before, *:after
+  @include box-sizing(border-box)
+
+body
+  font-family: $font-family-base
+  font-weight: $font-weight-base
+  font-size: $font-size-base
+  line-height: $line-height-base
+  color: $text-color
+  background-color: $background-color
+
+input, button, select, textarea
+  font-family: inherit
+  font-size: inherit
+  line-height: inherit
+
+a
+  color: $link-color
+  text-decoration: none
+
+  &:hover, &:focus
+    color: $link-color-hover
+    text-decoration: underline
