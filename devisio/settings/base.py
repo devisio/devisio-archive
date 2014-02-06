@@ -35,6 +35,7 @@ INTERNAL_APPS = (
 
 EXTERNAL_APPS = (
     'compressor',
+    'filemanager',
 )
 
 INSTALLED_APPS = (

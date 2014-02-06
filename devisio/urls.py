@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'devisio.views.home', name='home'),
     url(r'^', include('devisio.boxes.urls', namespace='boxes')),
 
+    url(r'^admin/filemanager/', include('filemanager.urls', namespace='filemanager')),
     url(r'^admin/', include(admin.site.urls)),
 )
 urlpatterns += staticfiles_urlpatterns()
