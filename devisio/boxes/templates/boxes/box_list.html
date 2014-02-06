@@ -4,7 +4,7 @@
 <div class="boxes">
   {% for box in box_list %}
   <div class="box">
-    <a href="#{{box}}" class="box-inner"></a>
+    <a href="#{{box}}" class="box-inner" style="background-image: url('/media/uploads/{{box.photo.image}}')"></a>
   </div>
   {% endfor %}
 </div>
