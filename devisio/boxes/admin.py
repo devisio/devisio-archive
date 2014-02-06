@@ -9,4 +9,4 @@ class BoxAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Box, BoxAdmin)
-admin.site.register(Photo)
+admin.site.register(Photo, BoxAdmin)
