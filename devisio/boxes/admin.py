@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from devisio.boxes.models import Box
+from devisio.boxes.models import Box, Photo
 
 
 class BoxAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class BoxAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Box, BoxAdmin)
+admin.site.register(Photo)
