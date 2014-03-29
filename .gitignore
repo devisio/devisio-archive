@@ -1,0 +1,12 @@
+*.pyc
+*.swo
+*.swp
+*.sqlite3
+# target
+/.target
+# virtualenv folders
+/bin/
+/include/
+/lib/
+/share/
+/local/
