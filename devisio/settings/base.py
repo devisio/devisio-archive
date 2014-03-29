@@ -89,4 +89,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'deploy/static')
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/media')
+
+# Django compressor for extended static files handling
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
