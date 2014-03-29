@@ -1,8 +1,12 @@
+{% load compress static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}devisio{% endblock %}</title>
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-sass" href="{% static 'sass/devisio.sass' %}">
+    {% endcompress %}
   </head>
   <body>
     {% block content %}{% endblock %}
