@@ -1,1 +1,2 @@
 https://www.djangoproject.com/download/1.7b1/tarball/
+http://github.com/django-compressor/django-compressor/tarball/develop/
