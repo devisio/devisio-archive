@@ -33,6 +33,7 @@ INTERNAL_APPS = (
 )
 
 EXTERNAL_APPS = (
+    'compressor',
 )
 
 INSTALLED_APPS = (
