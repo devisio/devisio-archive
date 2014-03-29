@@ -5,10 +5,31 @@
     <meta charset="utf-8">
     <title>{% block title %}devisio{% endblock %}</title>
     {% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/normalize/normalize.css' %}">
     <link rel="stylesheet" type="text/x-sass" href="{% static 'sass/devisio.sass' %}">
     {% endcompress %}
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <header>
+      <div class="container">
+        <div class="logo"><a href="#">devisio</a></div>
+        <nav>
+          <ul>
+            <li><a href="#">Stream</a></li>
+            <li><a href="#">Journals</a></li>
+            <li><a href="#">Archive</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <article>{% block content %}{% endblock %}</article>
+    <footer>
+      <div class="container">
+        <p>&copy; 2011-2014 by devisio.net</p>
+        <p>Photos are licensed under CC BY-NC-SA unless noted otherwise.</p>
+        <p>Imprint Contact</p>
+      </div>
+    </footer>
   </body>
 </html>
