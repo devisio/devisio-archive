@@ -10,3 +10,5 @@
 /lib/
 /share/
 /local/
+# sass
+/.sass-cache/
