@@ -8,7 +8,7 @@ devisioApp.config [
     $routeProvider.when('/journal', {
       templateUrl: '/static/partials/journals/journal_list.html',
       controller: 'JournalListCtrl'
-    }).when('/journal/:journalId', {
+    }).when('/journal/:journalSlug', {
       templateUrl: '/static/partials/journals/journal_detail.html',
       controller: 'JournalDetailCtrl'
     }).otherwise({
@@ -16,24 +16,16 @@ devisioApp.config [
     })
 ]
 
-journal = angular.module('journal', [])
+journal = angular.module('journal', ['ngResource'])
 
-journal.factory 'Journal', ['$resource', ($resource) ->
-  return $resource('/crud/journal/', {'pk': '@pk'}, {})
-]
-
-journals = [
-  {id: 1, title: 'Test1'},
-  {id: 2, title: 'Test2'},
-  {id: 3, title: 'Test3'},
-  {id: 4, title: 'Test4'},
-]
-
-
-journal.controller('JournalListCtrl', ['$scope', ($scope) ->
-  $scope.journals = journals
+journal.factory('Journal', ['$resource', ($resource) ->
+  return $resource('/crud/journals/', {'slug': '@slug'}, {})
 ])
 
-journal.controller('JournalDetailCtrl', ['$scope', '$routeParams', ($scope, $routeParams) ->
-  $scope.journal = journals[$routeParams.journalId - 1]
+journal.controller('JournalListCtrl', ['$scope', 'Journal', ($scope, Journal) ->
+  $scope.journals = Journal.query()
+])
+
+journal.controller('JournalDetailCtrl', ['$scope', '$routeParams', 'Journal', ($scope, $routeParams, Journal) ->
+  $scope.journal = Journal.get({slug: $routeParams.journalSlug})
 ])
