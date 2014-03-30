@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from djangular.views.crud import NgCRUDView
 
-# Create your views here.
+from devisio.journals.models import Journal
+
+
+class JournalCRUDView(NgCRUDView):
+    model_class = Journal
