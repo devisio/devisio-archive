@@ -1,6 +1,6 @@
 {% load compress static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="devisioApp">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}devisio{% endblock %}</title>
@@ -24,17 +24,7 @@
       </div>
     </header>
     <article>
-      <div class="container">
-        <div class="boxes">
-          {% block content %}
-          {% for i in "xxxxxxxxxxx" %}
-          <div class="box">
-            <img src="http://placehold.it/400x400&text={{forloop.counter}}">
-          </div>
-          {% endfor %}
-        {% endblock %}
-        </div>
-      </div>
+      <div class="container" ng-view>{% block content %}{% endblock %}</div>
     </article>
     <footer>
       <div class="container">
@@ -43,5 +33,10 @@
         <p>Imprint Contact</p>
       </div>
     </footer>
+    {% compress js %}
+    <script src="{% static 'vendor/angularjs/angular.js' %}"></script>
+    <script src="{% static 'vendor/angularjs/angular-route.js' %}"></script>
+    <script src="{% static 'coffee/devisio.coffee' %}" type="text/coffeescript"></script>
+    {% endcompress %}
   </body>
 </html>
