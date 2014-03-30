@@ -23,7 +23,19 @@
         </nav>
       </div>
     </header>
-    <article>{% block content %}{% endblock %}</article>
+    <article>
+      <div class="container">
+        <div class="boxes">
+          {% block content %}
+          {% for i in "xxxxxxxxxxx" %}
+          <div class="box">
+            <img src="http://placehold.it/400x400&text={{forloop.counter}}">
+          </div>
+          {% endfor %}
+        {% endblock %}
+        </div>
+      </div>
+    </article>
     <footer>
       <div class="container">
         <p>&copy; 2011-2014 by devisio.net</p>
