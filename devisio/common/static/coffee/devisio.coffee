@@ -3,12 +3,25 @@ devisioApp = angular.module 'devisioApp', [
   'journal'
 ]
 
+devisioApp.config((RestangularProvider) ->
+  RestangularProvider.setBaseUrl("/api/v1")
+  RestangularProvider.setResponseExtractor((response, operation, what, url) ->
+    if (operation is "getList")
+      newResponse = response.objects
+      newResponse.metadata = response.meta
+    else
+      newResponse = response
+    return newResponse
+  )
+  RestangularProvider.setRequestSuffix('/?')
+)
+
 devisioApp.config [
   '$routeProvider', ($routeProvider) ->
     $routeProvider.when('/journal', {
       templateUrl: '/static/partials/journals/journal_list.html',
       controller: 'JournalListCtrl'
-    }).when('/journal/:journalSlug', {
+    }).when('/journal/:journalId', {
       templateUrl: '/static/partials/journals/journal_detail.html',
       controller: 'JournalDetailCtrl'
     }).otherwise({
@@ -16,16 +29,15 @@ devisioApp.config [
     })
 ]
 
-journal = angular.module('journal', ['ngResource'])
+journal = angular.module('journal', ['restangular'])
 
-journal.factory('Journal', ['$resource', ($resource) ->
-  return $resource('/crud/journals/', {'slug': '@slug'}, {})
-])
+journal.controller('JournalListCtrl', ($scope, Restangular) ->
+  Restangular.all('journal').getList().then (journals) ->
+    $scope.journals = journals
+)
 
-journal.controller('JournalListCtrl', ['$scope', 'Journal', ($scope, Journal) ->
-  $scope.journals = Journal.query()
-])
-
-journal.controller('JournalDetailCtrl', ['$scope', '$routeParams', 'Journal', ($scope, $routeParams, Journal) ->
-  $scope.journal = Journal.get({slug: $routeParams.journalSlug})
-])
+journal.controller('JournalDetailCtrl', ($scope, $routeParams, Restangular) ->
+  console.log($routeParams)
+  Restangular.one('journal', $routeParams.journalId).get().then (journal) ->
+    $scope.journal = journal
+)
