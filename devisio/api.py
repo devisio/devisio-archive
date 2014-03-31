@@ -4,4 +4,4 @@ from devisio.journals.api import JournalResource
 
 
 api1 = Api(api_name='v1')
-api1.register(JournalResource)
+api1.register(JournalResource())
