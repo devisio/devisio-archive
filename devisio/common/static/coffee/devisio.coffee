@@ -29,6 +29,15 @@ devisioApp.config [
     })
 ]
 
+journalsFullscreen = () ->
+  obj.style.height = document.body.getBoundingClientRect().height - 64 + 'px' for obj in document.querySelectorAll('.journals section.slide.fullscreen')
+
+window.onresize = () ->
+  journalsFullscreen()
+
+devisioApp.directive 'ngJournals', () ->
+  journalsFullscreen
+
 journal = angular.module('journal', ['restangular'])
 
 journal.controller('JournalListCtrl', ($scope, Restangular) ->
