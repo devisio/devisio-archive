@@ -37,7 +37,6 @@ journal.controller('JournalListCtrl', ($scope, Restangular) ->
 )
 
 journal.controller('JournalDetailCtrl', ($scope, $routeParams, Restangular) ->
-  console.log($routeParams)
   Restangular.one('journal', $routeParams.journalId).get().then (journal) ->
     $scope.journal = journal
 )
