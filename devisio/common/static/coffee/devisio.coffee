@@ -18,12 +18,16 @@ devisioApp.config((RestangularProvider) ->
 
 devisioApp.config [
   '$routeProvider', ($routeProvider) ->
-    $routeProvider.when('/journal', {
+    $routeProvider.when('/stream/', {
+      templateUrl: '/static/partials/photos/photo_stream.html',
+    }).when('/journal/', {
       templateUrl: '/static/partials/journals/journal_list.html',
       controller: 'JournalListCtrl'
     }).when('/journal/:journalId', {
       templateUrl: '/static/partials/journals/journal_detail.html',
       controller: 'JournalDetailCtrl'
+    }).when('/archive/', {
+      templateUrl: '/static/partials/photos/photo_archive.html',
     }).when('/about/', {
       templateUrl: '/static/partials/devisio/devisio_about.html',
     }).otherwise({
