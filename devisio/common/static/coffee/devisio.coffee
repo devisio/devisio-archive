@@ -24,6 +24,8 @@ devisioApp.config [
     }).when('/journal/:journalId', {
       templateUrl: '/static/partials/journals/journal_detail.html',
       controller: 'JournalDetailCtrl'
+    }).when('/about/', {
+      templateUrl: '/static/partials/devisio/devisio_about.html',
     }).otherwise({
       redirectTo: '/journal'
     })
