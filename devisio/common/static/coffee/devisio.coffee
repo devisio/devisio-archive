@@ -1,5 +1,6 @@
 devisioApp = angular.module 'devisioApp', [
   'ngRoute',
+  'ngSanitize',
   'journal'
 ]
 
