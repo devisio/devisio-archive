@@ -21,7 +21,7 @@ class Journal(models.Model):
 
 
 class JournalSection(models.Model):
-    journal = models.ForeignKey(Journal)
+    journal = models.ForeignKey(Journal, related_name='sections')
     position = models.PositiveIntegerField()
     headline = models.CharField(max_length=255)
     slug = models.SlugField()
