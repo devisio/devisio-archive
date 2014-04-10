@@ -1,6 +1,27 @@
+# http://stackoverflow.com/questions/10713708/tracking-google-analytics-page-views-with-angular-js
+((angular) ->
+  angular.module("analytics", ["ng"]).service "analytics", [
+    "$rootScope"
+    "$window"
+    "$location"
+    ($rootScope, $window, $location) ->
+      track = ->
+        $window._gaq.push [
+          "_trackPageview"
+          $location.path()
+        ]
+        return
+
+      $rootScope.$on "$viewContentLoaded", track
+  ]
+  return
+) window.angular
+
+# devisio app
 devisioApp = angular.module 'devisioApp', [
   'ngRoute',
   'ngSanitize',
+  'analytics',
   'journal'
 ]
 
