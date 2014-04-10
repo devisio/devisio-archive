@@ -1,5 +1,5 @@
-<div class="journals" ng-journals>
-  <section class="slide fullscreen title" style="background-image: url('http://www.devisio.net/media/versions/albums/img_5360_album_gallery.jpg');">
+<div class="journals">
+  <section class="slide fullscreen title" style="background-image: url('http://www.devisio.net/media/versions/albums/img_5360_album_gallery.jpg');" ng-journal-fullscreen>
     <div class="container">
       <h1>{{journal.title}}</h1>
       <h2>{{journal.subtitle}}</h2>
@@ -12,7 +12,7 @@
     </div>
   </section>
   <div ng-repeat="section in journal.sections">
-    <section class="slide fullscreen" style="background-image: url('http://www.devisio.net/media/versions/albums/img_5234_album_gallery.jpg');"></section>
+    <section class="slide fullscreen" style="background-image: url('http://www.devisio.net/media/versions/albums/img_5234_album_gallery.jpg');" ng-journal-fullscreen></section>
     <section class="slide">
       <div class="container">
         <h2>{{section.headline}}</h2>
