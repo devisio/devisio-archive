@@ -10,3 +10,14 @@ class Journal(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class JournalSection(models.Model):
+    journal = models.ForeignKey(Journal)
+    position = models.PositiveIntegerField()
+    headline = models.CharField(max_length=255)
+    slug = models.SlugField()
+    text = models.TextField()
+
+    def __str__(self):
+        return self.headline
