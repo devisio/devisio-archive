@@ -36,6 +36,12 @@ devisioApp.config [
     })
 ]
 
+devisioApp.filter('nl2p', () ->
+  return (text) ->
+    text = String(text).trim()
+    return '<p>' + text.replace(/[\r\n]+/, '</p><p>') + '</p>'
+)
+
 journalsFullscreen = () ->
   obj.style.height = document.body.getBoundingClientRect().height - 64 + 'px' for obj in document.querySelectorAll('.journals section.slide.fullscreen')
 
