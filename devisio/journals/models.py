@@ -4,8 +4,12 @@ from django.conf import settings
 from django.db import models
 
 
+""" The journal itself is its first section. """
 class Journal(models.Model):
     title = models.CharField(max_length=255)
+    subtitle = models.CharField(max_length=255)
+    headline = models.CharField(max_length=255)
+    text = models.TextField()
     slug = models.SlugField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
