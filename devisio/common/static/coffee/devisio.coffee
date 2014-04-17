@@ -51,6 +51,11 @@ devisioApp.filter('nl2p', () ->
 
 devisioApp.directive 'ngJournal', () ->
   (scope, element, attrs) ->
+    scope.$watch 'journal', (journal, old) ->
+      if journal and journal != old
+        element.css(
+          'background-image': 'url(\'/media/uploads/' + journal.photo + '\')',
+        )
     # fullscreen handling
     if 'fullscreen' in attrs.class.split(' ')
       resize = () ->
