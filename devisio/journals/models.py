@@ -3,11 +3,14 @@ from datetime import datetime
 from django.conf import settings
 from django.db import models
 
+from filemanager.fields import FilemanagerField
+
 
 """ The journal itself is its first section. """
 class Journal(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255)
+    photo = FilemanagerField(max_length=255)
     headline = models.CharField(max_length=255)
     text = models.TextField()
     slug = models.SlugField()
