@@ -49,13 +49,15 @@ devisioApp.filter('nl2p', () ->
     return '<p>' + text.replace(/[\r\n]+/, '</p><p>') + '</p>'
 )
 
-devisioApp.directive 'ngJournalFullscreen', () ->
+devisioApp.directive 'ngJournal', () ->
   (scope, element, attrs) ->
-    resize = () ->
-      angular.element(element).css 'height', document.body.getBoundingClientRect().height - 64 + 'px'
-    resize()
-    window.addEventListener 'resize', () ->
+    # fullscreen handling
+    if 'fullscreen' in attrs.class.split(' ')
+      resize = () ->
+        angular.element(element).css 'height', document.body.getBoundingClientRect().height - 64 + 'px'
       resize()
+      window.addEventListener 'resize', () ->
+        resize()
 
 journal = angular.module('journal', ['restangular'])
 
