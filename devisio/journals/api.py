@@ -12,7 +12,7 @@ class JournalSectionResource(ModelResource):
 
 
 class JournalResource(ModelResource):
-    sections = fields.ToManyField(JournalSectionResource, attribute=lambda bundle: JournalSection.objects.filter(journal=bundle.obj), full=True)
+    sections = fields.ToManyField(JournalSectionResource, attribute=lambda bundle: JournalSection.objects.filter(journal=bundle.obj), full=True, null=True)
 
     def dehydrate(self, bundle):
         bundle.data['author'] = bundle.obj.author
