@@ -91,6 +91,8 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'deploy/static')
 
+MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/media')
 
 # Django compressor for extended static files handling
