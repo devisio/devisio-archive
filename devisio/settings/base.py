@@ -30,10 +30,13 @@ ALLOWED_HOSTS = []
 # Application definition
 INTERNAL_APPS = (
     'devisio.common',
+    'devisio.photos',
+    'devisio.journals',
 )
 
 EXTERNAL_APPS = (
     'compressor',
+    'tastypie',
     'filemanager',
 )
 

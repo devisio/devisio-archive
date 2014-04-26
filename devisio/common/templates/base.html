@@ -1,10 +1,44 @@
+{% load compress static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="devisioApp">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}devisio{% endblock %}</title>
+    {% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/normalize/normalize.css' %}">
+    <link rel="stylesheet" type="text/x-sass" href="{% static 'sass/devisio.sass' %}">
+    {% endcompress %}
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <header>
+      <div class="container">
+        <div class="logo"><a href="#">devisio</a></div>
+        <nav>
+          <ul>
+            <li><a href="#/stream">Stream</a></li>
+            <li><a href="#/journal">Journals</a></li>
+            <li><a href="#/archive">Archive</a></li>
+            <li><a href="#/about">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <article ng-view>{% block content %}{% endblock %}</article>
+    <footer>
+      <div class="container">
+        <p>&copy; 2011-2014 by devisio.net</p>
+        <p>Photos are licensed under CC BY-NC-SA unless noted otherwise.</p>
+        <p>Imprint Contact</p>
+      </div>
+    </footer>
+    {% compress js %}
+    <script src="{% static 'vendor/lodash/lodash.js' %}"></script>
+    <script src="{% static 'vendor/angularjs/angular.js' %}"></script>
+    <script src="{% static 'vendor/angularjs/angular-route.js' %}"></script>
+    <script src="{% static 'vendor/angularjs/angular-sanitize.js' %}"></script>
+    <script src="{% static 'vendor/angularjs/restangular.js' %}"></script>
+    <script src="{% static 'coffee/ga.coffee' %}" type="text/coffeescript"></script>
+    <script src="{% static 'coffee/devisio.coffee' %}" type="text/coffeescript"></script>
+    {% endcompress %}
   </body>
 </html>

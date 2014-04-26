@@ -1,0 +1,23 @@
+<div class="journals">
+  <section class="slide fullscreen title" ng-journal>
+    <div class="container">
+      <h1>{{journal.title}}</h1>
+      <h2>{{journal.subtitle}}</h2>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="container">
+      <h2>{{journal.headline}}</h2>
+      <div ng-bind-html="journal.text|nl2p"></div>
+    </div>
+  </section>
+  <div ng-repeat="section in journal.sections">
+    <section class="slide fullscreen" style="background-image: url('http://www.devisio.net/media/versions/albums/img_5234_album_gallery.jpg');" ng-journal></section>
+    <section class="slide">
+      <div class="container">
+        <h2>{{section.headline}}</h2>
+        <div ng-bind-html="section.text|nl2p"></div>
+      </div>
+    </section>
+  </div>
+</div>
