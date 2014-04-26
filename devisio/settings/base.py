@@ -29,7 +29,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INTERNAL_APPS = (
-    'devisio.common',
     'devisio.photos',
     'devisio.journals',
 )
@@ -47,6 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'devisio.common',  # load common app before external apps to allow overriding of templates
 ) + EXTERNAL_APPS + INTERNAL_APPS
 
 MIDDLEWARE_CLASSES = (
