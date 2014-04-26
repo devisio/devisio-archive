@@ -32,3 +32,6 @@ class JournalSection(models.Model):
 
     def __str__(self):
         return self.headline
+
+    class Meta:
+        ordering = ('position',)
