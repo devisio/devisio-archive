@@ -16,6 +16,8 @@ class JournalResource(ModelResource):
 
     def dehydrate(self, bundle):
         bundle.data['author'] = bundle.obj.author
+        name, extension = bundle.obj.photo.split('.')
+        bundle.data['thumbnail'] = '%s-journal.%s' % (name, extension)
 
         return bundle
 

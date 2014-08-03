@@ -37,6 +37,7 @@ EXTERNAL_APPS = (
     'compressor',
     'tastypie',
     'filemanager',
+    'sorl.thumbnail',
 )
 
 INSTALLED_APPS = (
@@ -46,7 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'devisio.common',  # load common app before external apps to allow overriding of templates
+    'devisio.common.apps.CommonConfig',  # load common app before external apps to allow overriding of templates
 ) + EXTERNAL_APPS + INTERNAL_APPS
 
 MIDDLEWARE_CLASSES = (
@@ -97,6 +98,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'deploy/static')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'deploy/media')
+
+MEDIA_THUMBNAILS_ROOT = os.path.join(MEDIA_ROOT, 'thumbnails')
 
 # Django compressor for extended static files handling
 
